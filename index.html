@@ -72,25 +72,25 @@
 
     <main>
         <section class="container about" id="about__projects">
-            <h2 class="subtitle">¿Que servicios te ofrecemos?</h2>
-            <p class="about__paragraph">Cualquier tipo de reparación o construcción en tu hogar, oficina y más, al
-                alcance de una llamada.</p>
+            <h2 class="subtitle">What services do we offer you?</h2>
+            <p class="about__paragraph">Any type of construction, remodeling or repair in your home, office and more,
+                within reach of a call.</p>
             <div class="about__main">
                 <article class="about__icons">
-                    <img src="./imagenes/casa.svg" alt="No se pudo cargar la imagen" class="about__icon">
-                    <h3 class="about__title">Construcción</h3>
+                    <img src="./imagenes/casco.svg" alt="No se pudo cargar la imagen" class="about__icon">
+                    <h3 class="about__title">Construction</h3>
                     <p class="about__paragraph">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos debitis
                         placeat culpa architecto?</p>
                 </article>
                 <article class="about__icons">
-                    <img src="./imagenes/casco.svg" alt="No se pudo cargar la imagen" class="about__icon">
-                    <h3 class="about__title">Mantenimiento</h3>
+                    <img src="./imagenes/casa.svg" alt="No se pudo cargar la imagen" class="about__icon">
+                    <h3 class="about__title">Remodeling</h3>
                     <p class="about__paragraph">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos debitis
                         placeat culpa architecto?</p>
                 </article>
                 <article class="about__icons">
                     <img src="./imagenes/llave.svg" alt="No se pudo cargar la imagen" class="about__icon">
-                    <h3 class="about__title">Reparación</h3>
+                    <h3 class="about__title">Repair</h3>
                     <p class="about__paragraph">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos debitis
                         placeat culpa architecto?</p>
                 </article>
@@ -100,22 +100,26 @@
         <section class="knowledge">
             <div class="knowledge__container container">
                 <div class="knowledge__text">
-                    <h2 class="subtitle">¡Deshazte de todos tus problemas del hogar de una vez por todas!</h2>
+                    <h2 class="subtitle">Get rid of all your home problems once and for all!</h2>
                     <p class="knowledge__paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                         Consectetur praesentium error minus! Aperiam veritatis consequatur aliquid aut consequuntur.
                         Necessitatibus libero, sint facilis distinctio commodi aspernatur quibusdam at vero officiis
                         error.</p>
-                    <a href="#footer" class="cta cta__knowledge">Contactanos ya</a>
+                    <a href="#footer" class="cta cta__knowledge">Contact us now</a>
                 </div>
                 <figure class="knowledge__picture">
-                    <img src="./imagenes/mapa ct.svg" alt="Error al cargar imagen" class="knowledge__img">
+                    <!-- <img src="./imagenes/mapa ct.svg" alt="Error al cargar imagen" class="knowledge__img"> -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000.939246542957!2d-73.19675372510359!3d41.22309440617166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e80eb1d9a87f45%3A0xbbe46e1f2cc91106!2s1663%20Reservoir%20Ave%2C%20Bridgeport%2C%20CT%2006606%2C%20EE.%20UU.!5e0!3m2!1ses-419!2ssv!4v1722461625258!5m2!1ses-419!2ssv"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="knowledge__img"></iframe>
                 </figure>
             </div>
 
         </section>
 
         <section class="price container" id="price">
-            <h2 class="subtitle">Cotiza el servicio necesario que buscas</h2>
+            <h2 class="subtitle">Quote your necessary service</h2>
             <div class="price__table">
                 <div class="price__element">
                     <p class="price__name">Construction</p>
@@ -127,7 +131,7 @@
                         <p class="price__features">Responsive</p>
                     </div>
 
-                    <a href="" class="price__cta">Contratanos</a>
+                    <a href="coffee.htm" class="price__cta">Contratanos</a>
                 </div>
 
                 <div class="price__element price__element--best">
@@ -306,8 +310,9 @@
             <form class="footer__form">
                 <h2 class="footer__newsletter">Contactanos.</h2>
                 <div class="footer__inputs">
-                    <input type="email" placeholder="Email:" class="footer__input">
-                    <input type="submit" value="Registrate" class="footer__submit">
+                    <input type="text" placeholder="Name:" class="footer__input input__name">
+                    <input type="tel" placeholder="Phone number:" class="footer__input input__number">
+                    <input type="submit" value="Send" class="footer__submit">
                 </div>
             </form>
         </section>
@@ -316,10 +321,10 @@
             <div class="footer__social">
                 <a href="https://WA.ME/50376908078" class="footer__icons"><img src="./imagenes/whatsapp.svg"
                         alt="No se pudo cargar la imagen" class="footer__img"></a>
-                <a href="#" class="footer__icons"><img src="./imagenes/facebook.svg" alt="No se pudo cargar la imagen"
-                        class="footer__img"></a>
-                <a href="#" class="footer__icons"><img src="./imagenes/instagram.svg" alt="No se pudo cargar la imagen"
-                        class="footer__img"></a>
+                <a href="#footer" class="footer__icons facebook"><img src="./imagenes/facebook.svg"
+                        alt="No se pudo cargar la imagen" class="footer__img "></a>
+                <a href="#footer" class="footer__icons instagram"><img src="./imagenes/instagram.svg"
+                        alt="No se pudo cargar la imagen" class="footer__img"></a>
             </div>
             <h3 class="footer__copyright">&copy;2024, Rock Remodeling & Construction.</h3>
         </section>
@@ -328,6 +333,8 @@
     <script src="./js/slider.js"></script>
     <script src="./js/questions.js"></script>
     <script src="./js/menu.js"></script>
+    <script src="./js/social_media.js"></script>
+
 
 </body>
 
