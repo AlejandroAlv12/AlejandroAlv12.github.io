@@ -228,9 +228,8 @@ body{
     transition:  all 0.5s;
 }
 .knowledge__img:hover{
-    transform: scale(1.1);
-    box-shadow: 15px 15px 20px #0000003b;
-    z-index: 100;
+    transform: scale(1.05);
+    box-shadow: 5px 5px 10px #0000003b;
 }
 .cta__knowledge{
     margin-left:20px ;
@@ -642,12 +641,76 @@ body{
     .subtitle{
         font-size: 1.8rem;
     }
+    .price__slider{
+        display: flex;
+        column-gap: 1rem;
+        position: absolute;
+        top: 1.25rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 50;
+    }
+    .price__slider a {
+        width: .7rem;
+        height: .7rem;
+        border-radius: 50%;
+        background-color: #001A49;
+        cursor: pointer;
+        opacity: .75;
+        transition: opacity ease-in-out 250ms;
+    }
+    .price__slider a:hover{
+        opacity: 1;
+    }
+    .price__slider a::backdrop{
+        opacity: 1;
+
+    }
+    .price__wrapper{
+        position: relative;
+        margin: 0 auto;
+        max-width: 100%;
+        scroll-behavior: smooth;
+    }
+    .price__table{
+        flex-wrap:nowrap;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+    }
     .price__element{
-        width: 80%;
+        width: 75%;
+        flex: 1 0 80%;
+        scroll-behavior: smooth;
+        scroll-snap-align: center;
+        margin-bottom: 1.25rem;
+    }
+    .button__class{
+        transition: all 1s ease-in-out;
     }
     .price__element--best{
         width: 90%;
         /* padding: 40px; */
+    }
+    #slider__1{
+        margin-left: 10%;
+    }
+    #slider__3{
+        margin-right: 10%;
+    }
+    .price__table::-webkit-scrollbar{
+        height: 10px;
+        /* background-color: #001a4970; */
+        border-radius: 5px;
+    }
+    .price__table::-webkit-scrollbar-thumb{
+        margin-top: 5px;
+        background-color:#001a4977;
+        border-radius: 5px;
+        cursor:grab;
+    }
+    .price__table::-webkit-scrollbar-thumb:active{
+        cursor: grabbing;
     }
     .price__price{
         font-size: 2rem;
