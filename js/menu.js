@@ -6,6 +6,7 @@
     const filter=document.querySelector('.filter');
     const aboutButton=document.querySelector('.about__button__header');
     const quouteButton=document.querySelector('.quote__button__header');
+    const locationButton=document.querySelector('.location__button__header');
     const contactButton=document.querySelector('.contact__button__header');
 
     //open menu
@@ -25,6 +26,10 @@
         filter.classList.remove('filter--show');
     });
     quouteButton.addEventListener('click', ()=>{
+        menu.classList.remove('nav__link--show');
+        filter.classList.remove('filter--show');
+    });
+    locationButton.addEventListener('click', ()=>{
         menu.classList.remove('nav__link--show');
         filter.classList.remove('filter--show');
     });

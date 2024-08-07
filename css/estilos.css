@@ -79,7 +79,6 @@ body{
     font-size:100%;
     text-align: center;
     font-family: Impact;
-    
 }
 
 .nav__link{
@@ -240,6 +239,10 @@ body{
 .price{
     text-align: center;
 }
+.price__slider input[type=radio]{
+    display: none;
+}
+
 .price__table{
     padding-top: 60px;
     display: flex;
@@ -310,12 +313,9 @@ body{
     display: grid;
     grid-template-columns: 50px 1fr 50px;
     gap: 1em;
-    align-items: center;
-    
-   
+    align-items: center; 
 }
-
-/* slider */
+/* slider testimony*/
 .testimony__body{
     display: grid;
     grid-template-columns: 1fr max-content;
@@ -430,6 +430,7 @@ body{
     font-weight: 300;
     font-size: 2rem;
     margin-bottom: 30px;
+    font-family: Impact;
 }
 .footer__title, .footer__newsletter{
     color: #fff;
