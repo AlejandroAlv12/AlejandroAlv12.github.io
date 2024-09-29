@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="./imagenes/rock Logo blanco.svg" type="image/x-icon">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     <!-- <meta name="theme-color"  content="#2091f9"> -->
     <!-- Primary Meta Tags -->
@@ -43,7 +44,7 @@
                 </h2>
             </div>
 
-            <div class="filter"></div>
+            <div id="filterID" class="filter"></div>
 
             <ul class="nav__link nav__link--menu">
                 <li class="nav__item about__button about__button__header">
@@ -175,52 +176,57 @@
             </div>
         </section>
 
-        <section class="testimony">
-            <div class="testimony__container container">
-                <img src="./imagenes/leftArrow.svg" alt="No se pudo cargar la imagen" class="testimony__arrow"
-                    id="before">
-                <section class="testimony__body testimony__body--show" data-id="1">
-                    <div class="testimony__texts">
-                        <h2 class="subtitles">New York, Street Dreams <span class="testimony__course">Us biggest
-                                proyect</span></h2>
-                        <p class="testimony__review">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum
-                            libero aperiam beatae, enim autem blanditiis atque, corrupti nesciunt voluptate itaque optio
-                            rem, consequatur ratione voluptatum aut. Qui ipsum quo aperiam.</p>
+        <section class="album__body ">
+            <div class="album__container  container swiper">
+                <div class="album__wrapper">
+                    <div class="card__list swiper-wrapper">
+                        <div class="card__item swiper-wrapper">
+                            <img src="./imagenes/construction.jpg" alt="Can´t load the image" class="album__image" onmouseover="change()" onmouseout="change2()">
+                            <h2 class="image__location">New York</h2>
+                            <p class="image__description">We work in this proyect for 2 months in august 2020, this is one of the most beatiful remodelation we made.</p>
+                            <button class="expand__button">Watch more</button>
+                        </div>
+                        <div class="card__item swiper-wrapper">
+                            <img src="./imagenes/construction.jpg" alt="Can´t load the image" class="album__image" onmouseover="change()" onmouseout="change2()">
+                            <h2 class="image__location">New York</h2>
+                            <p class="image__description">We work in this proyect for 2 months in august 2020, this is one of the most beatiful remodelation we made.</p>
+                            <button class="expand__button">Watch more</button>
+                        </div>
+                        <div class="card__item swiper-wrapper">
+                            <img src="./imagenes/construction.jpg" alt="Can´t load the image" class="album__image" onmouseover="change()" onmouseout="change2()">
+                            <h2 class="image__location">New York</h2>
+                            <p class="image__description">We work in this proyect for 2 months in august 2020, this is one of the most beatiful remodelation we made.</p>
+                            <button class="expand__button">Watch more</button>
+                        </div>
+                        <div class="card__item swiper-wrapper">
+                            <img src="./imagenes/construction.jpg" alt="Can´t load the image" class="album__image" onmouseover="change()" onmouseout="change2()">
+                            <h2 class="image__location">New York</h2>
+                            <p class="image__description">We work in this proyect for 2 months in august 2020, this is one of the most beatiful remodelation we made.</p>
+                            <button class="expand__button">Watch more</button>
+                        </div>
+                        <div class="card__item swiper-wrapper">
+                            <img src="./imagenes/construction.jpg" alt="Can´t load the image" class="album__image" onmouseover="change()" onmouseout="change2()">
+                            <h2 class="image__location">New York</h2>
+                            <p class="image__description">We work in this proyect for 2 months in august 2020, this is one of the most beatiful remodelation we made.</p>
+                            <button class="expand__button">Watch more</button>
+                        </div>
+                        <div class="card__item swiper-wrapper">
+                            <img src="./imagenes/construction.jpg" alt="Can´t load the image" class="album__image" onmouseover="change()" onmouseout="change2()">
+                            <h2 class="image__location">New York</h2>
+                            <p class="image__description">We work in this proyect for 2 months in august 2020, this is one of the most beatiful remodelation we made.</p>
+                            <button class="expand__button">Watch more</button>
+                        </div>
+                        <div class="card__item swiper-wrapper">
+                            <img src="./imagenes/construction.jpg" alt="Can´t load the image" class="album__image" onmouseover="change()" onmouseout="change2()">
+                            <h2 class="image__location">New York</h2>
+                            <p class="image__description">We work in this proyect for 2 months in august 2020, this is one of the most beatiful remodelation we made.</p>
+                            <button class="expand__button">Watch more</button>
+                        </div>
+                    
                     </div>
-                    <figure class="testimony__picture">
-                        <img src="./imagenes/construction.jpg" alt="No se pudo cargar la imagen" class="testimony__img">
-                    </figure>
-                </section>
 
 
-                <section class="testimony__body" data-id="2">
-                    <div class="testimony__texts">
-                        <h2 class="subtitles">Connecticut, ave Vermont <span class="testimony__course">Last tile
-                                repair</span></h2>
-                        <p class="testimony__review">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum
-                            libero aperiam beatae, enim autem blanditiis atque, corrupti nesciunt voluptate itaque optio
-                            rem, consequatur ratione voluptatum aut. Qui ipsum quo aperiam.</p>
-                    </div>
-                    <figure class="testimony__picture">
-                        <img src="./imagenes/construction.jpg" alt="No se pudo cargar la imagen" class="testimony__img">
-                    </figure>
-                </section>
-
-
-                <section class="testimony__body " data-id="3">
-                    <div class="testimony__texts">
-                        <h2 class="subtitles">Los Angeles, Ave Illinois <span class="testimony__course"> Some work of
-                                remodeling</span></h2>
-                        <p class="testimony__review">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum
-                            libero aperiam beatae, enim autem blanditiis atque, corrupti nesciunt voluptate itaque optio
-                            rem, consequatur ratione voluptatum aut. Qui ipsum quo aperiam.</p>
-                    </div>
-                    <figure class="testimony__picture">
-                        <img src="./imagenes/construction.jpg" alt="No se pudo cargar la imagen" class="testimony__img">
-                    </figure>
-                </section>
-                <img src="./imagenes/rightArrow.svg" alt="No se pudo cargar la imagen" class="testimony__arrow"
-                    id="next">
+                </div>
             </div>
         </section>
 
@@ -317,8 +323,10 @@
 
             <form class="footer__form">
                 <h2 class="footer__newsletter">Contact us.</h2>
-                <div class="footer__inputs">
-                    <h2 class="rock__number">+1 203 543 8353</h2>
+                <div class="footer__inputs" href="#footer" >
+                    <h2 id="copied">Copied</h2>
+                    <button href="#footer" class="rock__number" id="number" onclick="CopiarUrl()">+1 203 543 8353 <img src="./imagenes/copy.svg" alt="no se pudo cargar la imagen" id="img_copy"></button>
+                    
                     <!-- <input type="text" placeholder="Name:" class="footer__input input__name">
                     <input type="tel" placeholder="Phone number:" class="footer__input input__number">
                     <input type="submit" value="Send" class="footer__submit"> -->
@@ -338,12 +346,14 @@
             <h3 class="footer__copyright">&copy;2024, Rock Remodeling & Construction.</h3>
         </section>
     </footer>
-
-    <script src="./js/slider.js"></script>
+    
     <script src="./js/questions.js"></script>
     <script src="./js/menu.js"></script>
     <script src="./js/social_media.js"></script>
-
+    <script src="./js/initialize.js"></script>
+    <script src="./js/copy.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
 
 </body>
 
