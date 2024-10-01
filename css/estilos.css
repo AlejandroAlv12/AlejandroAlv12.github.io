@@ -8,7 +8,7 @@
 :root {
     --padding-container: 100px 0;
     --color-title: #001A49;
-    --color-card:  #e5e5f7;
+    --color-card: #e5e5f7;
 }
 
 html {
@@ -33,11 +33,12 @@ body {
     display: flex;
     z-index: 99;
     pointer-events: none;
-    
+
     transition: 0.5s;
     animation: transition ease-in-out;
     will-change: transform;
 }
+
 .filter--show {
     -webkit-backdrop-filter: blur(60px);
     -moz-backdrop-filter: blur(60px);
@@ -74,7 +75,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url(../imagenes/herramientas.jpg);
+    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url(../images/herramientas.jpg);
     clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 90%, 0 80%);
     background-position: center;
     background-repeat: no-repeat;
@@ -349,6 +350,7 @@ body {
     cursor: pointer;
 
 }
+
 .price__cta:hover {
     background-color: var(--color-cta);
     color: var(--bg-cta);
@@ -364,9 +366,10 @@ body {
     justify-content: center;
     align-items: center;
     justify-items: center;
-    
+
 
 }
+
 .album__wrapper {
     position: relative;
     margin: 0 auto;
@@ -374,7 +377,9 @@ body {
     max-height: 700px;
     scroll-behavior: smooth;
 }
-.card__list{
+
+/* cards */
+.card__list {
     flex-wrap: nowrap;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -382,10 +387,44 @@ body {
     scroll-behavior: smooth;
 }
 
-.card__item{
-scroll-behavior: smooth;
-scroll-snap-align: center;
+.card__item {
+    scroll-behavior: smooth;
+    scroll-snap-align: center;
+    color: var(--color-title);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* centar horizontalmente con flex*/
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    background: #ffffff;
+    min-width: 400px;
+    padding: 35px;
+    margin: 30px;
+    border-radius: 23px;
+    transition: all .5s;
 }
+
+.card__item:hover {
+    transform: scale(1.1);
+}
+
+.card__content {
+    transition: filter 1s ease;
+}
+
+.blurred .card__content {
+    filter: blur(0px);
+}
+
+.scaled img {
+    scale: 3.04 2.8;
+    border-radius: 50%;
+    translate: 0% 71.5%;
+    border-radius: 6px;
+}
+
 /* Estilo de la barra de scroll */
 .card__list::-webkit-scrollbar {
 
@@ -397,47 +436,28 @@ scroll-snap-align: center;
 
 /* Color del fondo de la barra de scroll */
 .card__list::-webkit-scrollbar-track {
-    background: #ffffff00; /* Color de fondo de la barra */
+    background: #ffffff00;
+    /* Color de fondo de la barra */
     border-radius: 10px;
 }
 
 /* Color y estilo de la barra */
 .card__list::-webkit-scrollbar-thumb {
-    background-color: #ffffff; /* Color de la barra */
-    border-radius: 10px; /* Bordes redondeados */
+    background-color: #ffffff;
+    /* Color de la barra */
+    border-radius: 10px;
+    /* Bordes redondeados */
     scroll-snap-align: center;
     transition: all 1s;
 }
-.card__list::-webkit-scrollbar-thumb:hover{
+
+.card__list::-webkit-scrollbar-thumb:hover {
     cursor: grab;
 }
-.card__list::-webkit-scrollbar-thumb:active{
+
+.card__list::-webkit-scrollbar-thumb:active {
     cursor: grabbing;
 }
-
-/* Estilo para navegadores de Mozilla Firefox */
- /* .card__list {
-    scrollbar-width: thin;
-    scrollbar-color: #888 #f1f1f1; 
-}  */
-
-
-
-.album__image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover; /*para no distorcionar la imagen*/
-    object-position: 50% 30%; /* para ubicar la imagen al centro pero un poco  arriba (30%)*/
-    margin-bottom: 40px;
-    transition: border-radius .5s ease , scale .5s ease , z-index 1s step-end , translate .5s ease;
-    z-index: 100;
-}
-.album__image--zindex{
-    z-index: 50;
-}
-
-
 
 
 .album__body {
@@ -452,46 +472,18 @@ scroll-snap-align: center;
     padding-bottom: 60px;
 }
 
-.card__item {
-    color: var(--color-title);
-    display: flex;
-    flex-direction: column;
-    align-items: center;    /* centar horizontalmente con flex*/
-    justify-content: center;
-    justify-items: center;
-    text-align: center;
-    background: #ffffff;
-    min-width: 400px;
-    padding: 35px;
-    margin: 30px;
-    border-radius: 23px;
-    transition: all .5s;
-}
-.card__item:hover{
-    transform: scale(1.1);
-}
-
 .album__image {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    object-fit: cover; /*para no distorcionar la imagen*/
-    object-position: 50% 30%; /* para ubicar la imagen al centro pero un poco  arriba (30%)*/
+    object-fit: cover;
+    /*para no distorcionar la imagen*/
+    object-position: 50% 30%;
+    /* para ubicar la imagen al centro pero un poco  arriba (30%)*/
     margin-bottom: 40px;
-    transition: border-radius .5s ease , scale .5s ease , z-index 1s step-end , translate .5s ease;
-    z-index: 100;
+    transition: border-radius .5s ease, scale .5s ease, z-index 1s step-end, translate .5s ease;
+    z-index: 40;
 }
-.album__image--zindex{
-    z-index: 50;
-}
-
-.album__image:active{
-    scale: 3.14 2.9;
-    border-radius: 50%;
-    translate: 0% 71.5%;
-    border-radius: 8px;
-}
-
 
 .image__description {
     font-size: 1rem;
@@ -504,18 +496,24 @@ scroll-snap-align: center;
     font-weight: 600;
     padding: 10px 35px;
     color: var(--color-cta);
-    background-color: var(--color-card);
+    background-color: #c8c8e775;
+    -webkit-backdrop-filter: blur(15px);
+    -moz-backdrop-filter: blur(15px);
+    -ms-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
     border-radius: 15px;
     cursor: pointer;
     border: none;
     transition: scale .5s ease;
+    z-index: 41;
 }
 
-.expand__button:hover{
+.expand__button:hover {
     scale: 1.1;
-    
+
 }
-.expand__button:active{
+
+.expand__button:active {
     scale: .9;
 }
 
@@ -641,7 +639,7 @@ scroll-snap-align: center;
 .rock__number {
     width: auto;
     height: auto;
-    padding: 15px 20px ;
+    padding: 15px 20px;
     font-weight: 600;
     font-size: 1.8rem;
     margin: auto;
@@ -659,12 +657,19 @@ scroll-snap-align: center;
     z-index: 11;
     scale: .95;
 }
-.rock__number:hover{
+
+.rock__number:hover {
     background: #000000;
     transition: all .4s;
     scale: 1;
 }
-#copied{
+
+.rock__number:active {
+    scale: .9;
+    background: #121929;
+}
+
+#copied {
     color: #fff;
     position: absolute;
     margin-left: 250px;
@@ -672,7 +677,7 @@ scroll-snap-align: center;
     font-size: small;
     background: #0059ff;
     padding: 8px 10px 5px;
-    border-radius: 20px; 
+    border-radius: 20px;
     /* display: none; */
     transition: all .4s ease-out;
     filter: blur(3px);
@@ -680,7 +685,7 @@ scroll-snap-align: center;
     z-index: 10;
 }
 
-#copied::before{
+#copied::before {
     content: "";
     position: absolute;
     left: 35%;
@@ -690,7 +695,8 @@ scroll-snap-align: center;
     height: 20px;
     clip-path: polygon(0% 0%, 50% 40%, 100% 0%);
 }
-#img_copy{
+
+#img_copy {
     margin-left: 20px;
 }
 
@@ -761,6 +767,7 @@ scroll-snap-align: center;
 
 }
 
+/* responsive para tablets */
 @media (max-width:800px) {
     .nav__title {
         font-weight: 10;
@@ -905,6 +912,7 @@ scroll-snap-align: center;
     }
 }
 
+/* responsive para celulares */
 @media (max-width:600px) {
     .hero__title {
         font-size: 2rem;
@@ -993,7 +1001,7 @@ scroll-snap-align: center;
     }
 
     .price__table::-webkit-scrollbar-thumb {
-        background-color: #001a491f;
+        background-color: var(--color-card);
         border-radius: 5px;
         cursor: grab;
     }
@@ -1006,23 +1014,33 @@ scroll-snap-align: center;
         font-size: 2rem;
     }
 
-    .testimony {
-        --padding-container: 60px 0;
+
+    /* cards */
+    .card__item {
+        min-width: 240px;
     }
 
-    .testimony__container {
-        grid-template-columns: 28px 1fr 28px;
-        gap: .9em;
+    .card__content {
+        transition: filter 1s ease;
     }
 
-    .testimony__arrow {
-        width: 100%;
+    .blurred .card__content {
+        filter: blur(5px);
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
     }
 
-    .testimony__course {
-        margin-top: 15px;
+    .scaled img {
+        scale: 2 2;
+        border-radius: 50%;
+        translate: 0% 30%;
+        border-radius: 9px;
     }
 
+
+    /* questions */
     .questions__title {
         font-size: 1rem;
         align-items: center;
