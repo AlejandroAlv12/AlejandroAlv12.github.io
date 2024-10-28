@@ -56,7 +56,7 @@ botones.forEach(function(boton) {
             tarjeta.classList.remove("blurred");
             tarjeta.classList.remove("scaled");
             boton.textContent = "See more ";
-        }, 10000);
+        }, 20000);
     });
 });
 

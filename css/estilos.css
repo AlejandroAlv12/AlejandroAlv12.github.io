@@ -6,9 +6,11 @@
 }
 
 :root {
+    /* rojos blancos y azul negros */
     --padding-container: 100px 0;
     --color-title: #001A49;
     --color-card: #e5e5f7;
+    --color-cta: #cf1515;
 }
 
 html {
@@ -75,9 +77,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url(../images/herramientas.jpg);
+    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url(../images/fachada.jpg);
     clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 90%, 0 80%);
-    background-position: center;
+    background-position: 50% 13%;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -173,7 +175,7 @@ body {
 
 .cta {
     display: inline-block;
-    background-color: #0059ff;
+    background-color: var(--color-cta);
     justify-self: center;
     color: #fff;
     text-decoration: none;
@@ -224,13 +226,14 @@ body {
 
 .about__icon {
     width: 40px;
+    color: var(--color-cta);
 }
 
 /* knowledge */
 
 .knowledge {
     background-color: #e5e5f7;
-    background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+    background-image: radial-gradient(#444cf7 0.5px, transparent 0.6px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.6px);
     background-size: 20px 20px;
     background-position: 0 0, 10px 10px;
     overflow: hidden;
@@ -306,10 +309,10 @@ body {
 .price__element--best {
     width: 370px;
     padding: 60px 40px;
-    background-color: #ff7143;
+    background-color: #cf1515;
     --color-plan: rgba(255 255 255 /75%);
     --color-price: #fff;
-    --bg-cta: #9f3919;
+    --bg-cta: #971111;
     --color-cta: #fff;
     --color-items: rgba(255 255 255 /75%);
 }
@@ -344,7 +347,7 @@ body {
     text-decoration: none;
     background-color: var(--bg-cta);
     font-weight: 600;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+    
     color: var(--color-cta);
     transition: all .5s;
     cursor: pointer;
@@ -356,6 +359,7 @@ body {
     color: var(--bg-cta);
     transform: scale(1.1);
     transition: all .5s;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -363,6 +367,7 @@ body {
 .album__body {
     background-color: #e5e5f7;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     justify-items: center;
@@ -478,7 +483,7 @@ body {
     border-radius: 50%;
     object-fit: cover;
     /*para no distorcionar la imagen*/
-    object-position: 50% 30%;
+    object-position: 50% 50%;
     /* para ubicar la imagen al centro pero un poco  arriba (30%)*/
     margin-bottom: 40px;
     transition: border-radius .5s ease, scale .5s ease, z-index 1s step-end, translate .5s ease;
@@ -495,12 +500,12 @@ body {
 .expand__button {
     font-weight: 600;
     padding: 10px 35px;
-    color: var(--color-cta);
+    color: #1d1d5c;
     background-color: #c8c8e775;
-    -webkit-backdrop-filter: blur(15px);
-    -moz-backdrop-filter: blur(15px);
-    -ms-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    -ms-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border-radius: 15px;
     cursor: pointer;
     border: none;
