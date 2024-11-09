@@ -277,36 +277,65 @@ body {
 
 /* price */
 
-.price {
-    text-align: center;
-}
-
-.price__slider input[type=radio] {
-    display: none;
-}
-
-.price__table {
-    padding-top: 60px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2.5em;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.price__element {
-    background-color: var(--color-card);
-    text-align: center;
-    border-radius: 10px;
-    width: 330px;
-    padding: 40px;
-    /* creamos unas custom propertys (variables customizables)*/
+/* Asegurando que todos los navegadores reconozcan las propiedades personalizadas */
+:root {
     --color-plan: #696871;
     --color-price: #1d293f;
     --bg-cta: #fff;
     --color-cta: #1d1d5c;
     --color-items: #696871;
 }
+
+/* Alineación de texto centrado */
+.price {
+    text-align: center;
+}
+
+/* Ocultar entradas de radio */
+.price__slider input[type=radio] {
+    display: none;
+}
+
+/* Estilos de la tabla de precios */
+.price__table {
+    padding-top: 60px;
+    display: -webkit-box; /* Versiones antiguas de Safari */
+    display: -ms-flexbox; /* IE 10 */
+    display: flex;
+    -webkit-box-pack: justify; /* Versiones antiguas de Safari */
+    -ms-flex-pack: justify; /* IE 10 */
+    justify-content: space-evenly;
+    -webkit-box-align: center; /* Versiones antiguas de Safari */
+    -ms-flex-align: center; /* IE 10 */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2.5em;
+}
+
+/* Estilos de los elementos de precio */
+.price__element {
+    background-color: var(--color-card);
+    text-align: center;
+    border-radius: 10px;
+    width: 330px;
+    padding: 40px;
+    /* Creación de propiedades personalizadas */
+    --color-plan: #696871;
+    --color-price: #1d293f;
+    --bg-cta: #fff;
+    --color-cta: #1d1d5c;
+    --color-items: #696871;
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Versiones antiguas de Safari */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    -webkit-transition: transform 0.3s ease; /* Versiones antiguas de Safari */
+    transition: transform 0.3s ease;
+}
+
+.price__element:hover {
+    -webkit-transform: scale(1.05); /* Versiones antiguas de Safari */
+    transform: scale(1.05);
+}
+
 
 .price__element--best {
     width: 370px;
