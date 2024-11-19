@@ -302,13 +302,13 @@ body {
     display: -webkit-box; /* Versiones antiguas de Safari */
     display: -ms-flexbox; /* IE 10 */
     display: flex;
-    -webkit-box-pack: justify; /* Versiones antiguas de Safari */
-    -ms-flex-pack: justify; /* IE 10 */
+    -webkit-box-pack: center; /* Versiones antiguas de Safari */
+    -ms-flex-pack: center; /* IE 10 */
     justify-content: space-evenly;
     -webkit-box-align: center; /* Versiones antiguas de Safari */
     -ms-flex-align: center; /* IE 10 */
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /*wrap*/
     gap: 2.5em;
 }
 
@@ -413,12 +413,12 @@ body {
     max-height: 700px;
     scroll-behavior: smooth;
     justify-items: center;
+    justify-content: center;
 }
 .cta__album{
-    margin-top: 2px;
-    margin-bottom: 30px;
+    margin: 2px auto 30px auto;
     border-style: none;
-    
+    display: inline-block;
 }
 .cta__album:hover{
     cursor: pointer;
