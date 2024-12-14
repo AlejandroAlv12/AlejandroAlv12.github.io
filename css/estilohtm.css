@@ -8,7 +8,7 @@ body {
 
 .galeria {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta el tamaño mínimo/máximo de las columnas */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajusta el tamaño mínimo/máximo de las columnas */
     gap: 15px; /* Espaciado entre imágenes */
     padding: 20px;
     justify-items: center; /* Centra las imágenes horizontalmente */

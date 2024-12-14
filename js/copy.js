@@ -37,7 +37,7 @@ botones.forEach(function(boton) {
     boton.addEventListener("click", function() {
         // Seleccionamos la tarjeta padre (el contenedor de la clase .card)
         var tarjeta = boton.closest(".card__item");
-        var imagen = tarjeta.querySelector("img");
+        
 
         // Alternamos la clase 'blurred' para aplicar el filtro blur a la tarjeta
         tarjeta.classList.toggle("blurred");

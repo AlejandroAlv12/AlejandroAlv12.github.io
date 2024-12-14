@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.style.justifyContent = "center";
     modal.style.alignItems = "center";
     modal.style.zIndex = "1000";
-    modal.style.transition = "opacity 0.4s ease";
+    modal.style.transition = "opacity 0.3s ease";
 
     // Crear la imagen dentro del modal
     const modalImg = document.createElement("img");
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalImg.style.maxHeight = "90%";
     modalImg.style.borderRadius = "10px";
     modalImg.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.3)";
-    modalImg.style.transition = "transform 0.4s ease";
+    modalImg.style.transition = "transform 0.5s ease";
     modal.appendChild(modalImg);
 
     // Añadir el modal al cuerpo del documento
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Evento para cerrar el modal al hacer clic fuera de la imagen
     modal.addEventListener("click", () => {
         // Reducir la imagen con animación
-        modalImg.style.transform = "scale(0.1)";
+        modalImg.style.transform = "scale(0.1)"; // Reducir la imagen al hacer clic en el modal
 
         // Restaurar el estado del fondo (blur y visibilidad del modal)
         gallery.style.filter = "blur(0px)"; // Quitar el blur
@@ -50,26 +50,29 @@ document.addEventListener("DOMContentLoaded", () => {
     images.forEach(image => {
         image.addEventListener("click", () => {
             modalImg.src = image.src; // Establece la fuente de la imagen clickeada
-            modal.style.display = "flex";
+            modal.style.display = "flex"; // Mostrar el modal
             setTimeout(() => {
-                modal.style.opacity = "1";
+                modal.style.opacity = "1"; // Hacer visible el modal
                 modalImg.style.transform = "scale(1)"; // Ampliar la imagen con animación
             }, 10);
 
             // Animación de ampliación
+            gallery.style.transition = "filter 0.3s ease"; // Añadir transición suave al blur
             gallery.style.filter = "blur(10px)"; // Añadir blur con transición
         });
     });
+
     videos.forEach(video => {
         video.addEventListener("click", () => {
-            modalImg.src = video.src; // Establece la fuente de la video clickeada
-            modal.style.display = "flex";
+            modalImg.src = video.src; // Establece la fuente del video clickeado
+            modal.style.display = "flex"; // Mostrar el modal
             setTimeout(() => {
-                modal.style.opacity = "1";
-                modalImg.style.transform = "scale(1)"; // Ampliar la video con animación
+                modal.style.opacity = "1"; // Hacer visible el modal
+                modalImg.style.transform = "scale(1)"; // Ampliar el video con animación
             }, 10);
 
             // Animación de ampliación
+            gallery.style.transition = "filter 0.3s ease"; // Añadir transición suave al blur
             gallery.style.filter = "blur(10px)"; // Añadir blur con transición
         });
     });
