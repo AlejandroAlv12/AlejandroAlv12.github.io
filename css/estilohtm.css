@@ -1,89 +1,115 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-@font-face {
-    font-family: impact;
-    src: url(../fonts/impact/impact.ttf);
-}
-
-:root {
-    --padding-container: 100px 0;
-    --color-title: #001A49;
-    --color-card:  #e5e5f7;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
+/* Reset básico */
 body {
-    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
 }
-.img{
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 0.5em;
-    
+
+/* Galería estilo Pinterest */
+.galeria {
+    column-count: 2; /* Por defecto para móviles */
+    column-gap: 10px;
+    padding: 20px;
 }
-.video{
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 0.5em;
-}
-.galeria{
-    columns: 5 320px;
-    column-gap: 0.5em;
+
+/* Imágenes y videos ajustados al diseño Masonry */
+.galeria .img, .galeria .video {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block; /* Importante para Masonry */
 }
 
 
 
+/* Media Queries para ajustar el diseño según el tamaño de la pantalla */
+@media (min-width: 576px) {
+    .galeria {
+        column-count: 2; /* Dos columnas para pantallas pequeñas */
+    }
+}
+
+@media (min-width: 768px) {
+    .galeria {
+        column-count: 3; /* Tres columnas para tablets */
+    }
+}
+
+@media (min-width: 992px) {
+    .galeria {
+        column-count: 4; /* Cuatro columnas para pantallas medianas */
+    }
+}
+
+@media (min-width: 1200px) {
+    .galeria {
+        column-count: 5; /* Cinco columnas para pantallas grandes */
+    }
+}
+
+/* Filtro de fondo difuminado */
 .filter {
+    display: none;
     position: fixed;
-    background-color: #00000000;
-    -webkit-backdrop-filter: blur(0px);
-    -moz-backdrop-filter: blur(0px);
-    -ms-backdrop-filter: blur(0px);
-    backdrop-filter: blur(0px);
     top: 0;
     left: 0;
+    width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+/* Contenedor de la imagen ampliada */
+.fullscreen-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* Imagen o video dentro del contenedor */
+.fullscreen-container img, .fullsreen-container video {
     width: 100%;
-    display: flex;
-    z-index: 99;
-    pointer-events: none;
+    object-fit: contain;
+    object-position: center;
     
-    transition: 0.5s;
-    animation: transition ease-in-out;
-    will-change: transform;
-}
-.filter--show {
-    -webkit-backdrop-filter: blur(60px);
-    -moz-backdrop-filter: blur(60px);
-    -ms-backdrop-filter: blur(60px);
-    backdrop-filter: blur(60px);
-    transition: 0.5s;
-    animation: transition ease-in-out;
-    will-change: transform;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    overflow: hidden;
-    padding: var(--padding-container);
+
+/* Botón de cerrar */
+.close-btn {
+    position:fixed;
+    top: 10px;
+    right: 10px;
+
+
+    font-size: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    z-index: 1002;
+    transition: all .5s;
 }
 
-.hero {
-    width: 100%;
-    height: 100vh;
-    min-height: 600px;
-    max-height: 8;
-}
-@media (max-width:660px) {
-    .galeria{
-        columns: 2 100px;
-        column-gap: 0.5em;
-    }
+.close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.6);
 }
