@@ -22,34 +22,6 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: inline-block; /* Importante para Masonry */
 }
-
-
-
-/* Media Queries para ajustar el diseño según el tamaño de la pantalla */
-@media (min-width: 576px) {
-    .galeria {
-        column-count: 2; /* Dos columnas para pantallas pequeñas */
-    }
-}
-
-@media (min-width: 768px) {
-    .galeria {
-        column-count: 3; /* Tres columnas para tablets */
-    }
-}
-
-@media (min-width: 992px) {
-    .galeria {
-        column-count: 4; /* Cuatro columnas para pantallas medianas */
-    }
-}
-
-@media (min-width: 1200px) {
-    .galeria {
-        column-count: 5; /* Cinco columnas para pantallas grandes */
-    }
-}
-
 /* Filtro de fondo difuminado */
 .filter {
     display: none;
@@ -115,3 +87,32 @@ body {
 .close-btn:hover {
     background-color: rgba(0, 0, 0, 0.6);
 }
+
+
+/* Media Queries para ajustar el diseño según el tamaño de la pantalla */
+
+@media (min-width: 576px) {
+    .galeria {
+        column-count: 2; /* Dos columnas para pantallas pequeñas */
+    }
+}
+
+@media (min-width: 768px) {
+    .galeria {
+        column-count: 3; /* Tres columnas para tablets */
+    }
+}
+
+@media (min-width: 992px) {
+    .galeria {
+        column-count: 4; /* Cuatro columnas para pantallas medianas */
+    }
+}
+
+@media (min-width: 1200px) {
+    .galeria {
+        column-count: 5; /* Cinco columnas para pantallas grandes */
+    }
+}
+
+
