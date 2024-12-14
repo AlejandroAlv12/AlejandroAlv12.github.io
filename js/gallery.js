@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalImg = document.createElement("img");
     modalImg.style.maxWidth = "90%";
     modalImg.style.maxHeight = "90%";
-    modalImg.style.borderRadius = "10px";
+    modalImg.style.borderRadius = "20px";
     modalImg.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.3)";
     modalImg.style.transition = "transform 0.5s ease";
     modal.appendChild(modalImg);
@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Restaurar el estado del fondo (blur y visibilidad del modal)
         gallery.style.filter = "blur(0px)"; // Quitar el blur
+        document.body.style.overflow = "auto";
         setTimeout(() => {
             modal.style.opacity = "0"; // Desvanecer el modal
             setTimeout(() => {
@@ -59,6 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // Animación de ampliación
             gallery.style.transition = "filter 0.3s ease"; // Añadir transición suave al blur
             gallery.style.filter = "blur(10px)"; // Añadir blur con transición
+            // Bloquear el desplazamiento del fondo
+            document.body.style.overflow = "hidden";
         });
     });
 
@@ -74,6 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // Animación de ampliación
             gallery.style.transition = "filter 0.3s ease"; // Añadir transición suave al blur
             gallery.style.filter = "blur(10px)"; // Añadir blur con transición
+            // Bloquear el desplazamiento del fondo
+            document.body.style.overflow = "hidden";
         });
     });
 });
