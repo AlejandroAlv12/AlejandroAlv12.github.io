@@ -16,6 +16,8 @@ body {
 .galeria .img, .galeria .video {
     width: 100%;
     margin-bottom: 10px;
+    margin-top: 10px;
+
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
@@ -73,26 +75,28 @@ body {
     z-index: 1001;
     max-width: 90%;
     max-height: 90%;
+    transition: all 0.5s ease-in-out;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Imagen o video dentro del contenedor */
-.fullscreen-container img, .fullsreen-container video {
+.fullscreen-container img, .fullscreen-container video {
     width: 100%;
     object-fit: contain;
     object-position: center;
-    
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease-in-out; /* Transición añadida */
 }
+
 
 
 /* Botón de cerrar */
 .close-btn {
-    position:fixed;
+    position: absolute;
     top: 10px;
     right: 10px;
-
-
     font-size: 20px;
     color: white;
     background-color: rgba(0, 0, 0, 0.4);
@@ -107,7 +111,7 @@ body {
     backdrop-filter: blur(10px) saturate(180%);
     -webkit-backdrop-filter: blur(10px) saturate(180%);
     z-index: 1002;
-    transition: all .5s;
+    transition: all 0.3s ease;
 }
 
 .close-btn:hover {
