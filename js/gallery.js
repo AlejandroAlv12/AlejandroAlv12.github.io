@@ -1,78 +1,76 @@
-// Seleccionar elementos
-const filter = document.getElementById('filterID');
-const gallery = document.querySelector('.galeria');
-const body = document.body;
+document.addEventListener("DOMContentLoaded", () => {
+    // Crear el contenedor para el modal
+    const modal = document.createElement("div");
+    modal.style.position = "fixed";
+    modal.style.top = "0";
+    modal.style.left = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+    modal.style.display = "none";
+    modal.style.justifyContent = "center";
+    modal.style.alignItems = "center";
+    modal.style.zIndex = "1000";
+    modal.style.transition = "opacity 0.4s ease";
 
-// Crear contenedor para la imagen ampliada
-const fullscreenContainer = document.createElement('div');
-fullscreenContainer.classList.add('fullscreen-container');
-fullscreenContainer.innerHTML = `
-    <div class="content">
-        <button class="close-btn">&times;</button>
-        <div class="media-container"></div>
-    </div>
-`;
-body.appendChild(fullscreenContainer);
+    // Crear la imagen dentro del modal
+    const modalImg = document.createElement("img");
+    modalImg.style.maxWidth = "90%";
+    modalImg.style.maxHeight = "90%";
+    modalImg.style.borderRadius = "10px";
+    modalImg.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.3)";
+    modalImg.style.transition = "transform 0.4s ease";
+    modal.appendChild(modalImg);
 
-const closeButton = fullscreenContainer.querySelector('.close-btn');
-const mediaContainer = fullscreenContainer.querySelector('.media-container');
+    // Añadir el modal al cuerpo del documento
+    document.body.appendChild(modal);
 
-// Ajustar dinámicamente el tamaño del contenedor y su contenido
-const adjustMediaSize = (element) => {
-    const viewportWidth = window.innerWidth * 0.9; // 90% del ancho de la ventana
-    const viewportHeight = window.innerHeight * 0.9; // 90% del alto de la ventana
-    const naturalWidth = element.naturalWidth || element.videoWidth;
-    const naturalHeight = element.naturalHeight || element.videoHeight;
-    const aspectRatio = naturalWidth / naturalHeight;
+    // Seleccionar el contenedor de la galería
+    const gallery = document.querySelector(".galeria");
 
-    // Ajustar tamaño según la relación de aspecto
-    if (aspectRatio > 1) {
-        // Imagen/video más ancho que alto
-        element.style.width = `${Math.min(viewportWidth, naturalWidth)}px`;
-        element.style.height = 'auto';
-    } else {
-        // Imagen/video más alto que ancho
-        element.style.width = 'auto';
-        element.style.height = `${Math.min(viewportHeight, naturalHeight)}px`;
-    }
+    // Evento para cerrar el modal al hacer clic fuera de la imagen
+    modal.addEventListener("click", () => {
+        // Reducir la imagen con animación
+        modalImg.style.transform = "scale(0.1)";
 
-    // Asegurar que no desborde el viewport
-    element.style.maxWidth = `${viewportWidth}px`;
-    element.style.maxHeight = `${viewportHeight}px`;
-};
+        // Restaurar el estado del fondo (blur y visibilidad del modal)
+        gallery.style.filter = "blur(0px)"; // Quitar el blur
+        setTimeout(() => {
+            modal.style.opacity = "0"; // Desvanecer el modal
+            setTimeout(() => {
+                modal.style.display = "none"; // Ocultar el modal después de la animación
+            }, 300);
+        }, 150); // Esperar a que la imagen termine de reducirse
+    });
 
-// Evento para abrir imagen o video en modo fullscreen
-gallery.addEventListener('click', (e) => {
-    if (e.target.classList.contains('img') || e.target.classList.contains('video')) {
-        const element = e.target.cloneNode(true); // Crear un clon del elemento clickeado
-        mediaContainer.innerHTML = ''; // Limpiar contenido previo
-        mediaContainer.appendChild(element);
+    // Seleccionar todas las imágenes de la galería
+    const images = document.querySelectorAll(".galeria .img");
+    const videos = document.querySelectorAll(".galeria .video");
 
-        // Ajustar tamaño del contenido
-        adjustMediaSize(element);
+    images.forEach(image => {
+        image.addEventListener("click", () => {
+            modalImg.src = image.src; // Establece la fuente de la imagen clickeada
+            modal.style.display = "flex";
+            setTimeout(() => {
+                modal.style.opacity = "1";
+                modalImg.style.transform = "scale(1)"; // Ampliar la imagen con animación
+            }, 10);
 
-        // Mostrar fondo difuminado y contenedor
-        filter.style.display = 'block';
-        fullscreenContainer.style.display = 'flex';
-    }
-});
+            // Animación de ampliación
+            gallery.style.filter = "blur(10px)"; // Añadir blur con transición
+        });
+    });
+    videos.forEach(video => {
+        video.addEventListener("click", () => {
+            modalImg.src = video.src; // Establece la fuente de la video clickeada
+            modal.style.display = "flex";
+            setTimeout(() => {
+                modal.style.opacity = "1";
+                modalImg.style.transform = "scale(1)"; // Ampliar la video con animación
+            }, 10);
 
-// Evento para cerrar la vista fullscreen
-closeButton.addEventListener('click', () => {
-    filter.style.display = 'none';
-    fullscreenContainer.style.display = 'none';
-});
-
-// Ocultar al hacer clic en el fondo
-filter.addEventListener('click', () => {
-    filter.style.display = 'none';
-    fullscreenContainer.style.display = 'none';
-});
-
-// Ajustar dinámicamente el tamaño al redimensionar la ventana
-window.addEventListener('resize', () => {
-    const element = mediaContainer.querySelector('.img, .video');
-    if (element) {
-        adjustMediaSize(element);
-    }
+            // Animación de ampliación
+            gallery.style.filter = "blur(10px)"; // Añadir blur con transición
+        });
+    });
 });
