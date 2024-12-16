@@ -31,7 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
     modalVideo.style.height = "100%";
     modalVideo.style.display = "none";
     modalVideo.style.borderRadius = "20px";
-    modalVideo.controls = true;
+    modalVideo.controls = false; // Desactivar controles inicialmente
+    modalVideo.muted = true; // Opción: se inicia sin sonido
     modalContent.appendChild(modalVideo);
 
     const gallery = document.querySelector(".galeria");
@@ -58,6 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
             modalContent.style.top = originalPosition.top - window.scrollY + "px";
             modalContent.style.left = originalPosition.left - window.scrollX + "px";
             modalContent.style.transform = "none";
+
+            // Pausa y reinicia el video
+            modalVideo.pause();
+            modalVideo.currentTime = 0; // Reinicia el video al inicio
         }
 
         gallery.style.filter = "blur(0px)";
@@ -71,8 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 modal.style.display = "none";
                 modalImg.style.display = "none";
                 modalVideo.style.display = "none";
-                modalVideo.pause();
-                modalVideo.src = "";
+                modalVideo.src = ""; // Limpia la fuente del video
                 document.body.style.overflow = "auto"; // Activar scroll al terminar todo
                 isAnimating = false; // Animación terminada
             }, 500); // Espera a que termine la animación de cierre
@@ -139,6 +143,13 @@ document.addEventListener("DOMContentLoaded", () => {
             modalContent.style.top = "50%";
             modalContent.style.left = "50%";
             modalContent.style.transform = "translate(-50%, -50%)";
+
+            if (isVideo) {
+                setTimeout(() => {
+                    modalVideo.controls = true; // Activar controles
+                    modalVideo.play(); // Reproducir automáticamente
+                }, 500); // Tiempo de la transición
+            }
 
             setTimeout(() => {
                 isAnimating = false; // Animación terminada

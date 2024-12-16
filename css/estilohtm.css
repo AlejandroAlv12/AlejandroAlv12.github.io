@@ -41,17 +41,14 @@ body {
     /* Altura fija para mantener la proporción */
     object-fit: cover;
     /* Recorta las imágenes para ajustarlas al contenedor */
-    border-radius: 8px;
+    border-radius: 20px;
     /* Bordes redondeados para un diseño más atractivo */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     /* Sombra sutil */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.video:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
+
 
 @media (max-width: 600px) {
     .galeria {
