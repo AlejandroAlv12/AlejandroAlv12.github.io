@@ -1,84 +1,162 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Crear el contenedor para el modal
     const modal = document.createElement("div");
     modal.style.position = "fixed";
     modal.style.top = "0";
     modal.style.left = "0";
     modal.style.width = "100%";
     modal.style.height = "100%";
-    modal.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+    modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
+    modal.style.transition = "background-color 0.5s ease"; // Transición para el fondo
     modal.style.display = "none";
-    modal.style.justifyContent = "center";
-    modal.style.alignItems = "center";
     modal.style.zIndex = "1000";
-    modal.style.transition = "opacity 0.3s ease";
+    modal.style.overflow = "hidden";
 
-    // Crear la imagen dentro del modal
-    const modalImg = document.createElement("img");
-    modalImg.style.maxWidth = "90%";
-    modalImg.style.maxHeight = "90%";
-    modalImg.style.borderRadius = "20px";
-    modalImg.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.3)";
-    modalImg.style.transition = "transform 0.5s ease";
-    modal.appendChild(modalImg);
-
-    // Añadir el modal al cuerpo del documento
     document.body.appendChild(modal);
 
-    // Seleccionar el contenedor de la galería
+    const modalContent = document.createElement("div");
+    modalContent.style.position = "absolute";
+    modalContent.style.transition = "transform 0.5s ease, top 0.5s ease, left 0.5s ease, right 0.5s ease, width 0.5s ease, height 0.5s ease, border-radius 0.5s ease";
+    modalContent.style.borderRadius = "20px";
+    modal.appendChild(modalContent);
+
+    const modalImg = document.createElement("img");
+    modalImg.style.width = "100%";
+    modalImg.style.height = "100%";
+    modalImg.style.display = "none";
+    modalImg.style.borderRadius = "20px";
+    modalContent.appendChild(modalImg);
+
+    const modalVideo = document.createElement("video");
+    modalVideo.style.width = "100%";
+    modalVideo.style.height = "100%";
+    modalVideo.style.display = "none";
+    modalVideo.style.borderRadius = "20px";
+    modalVideo.controls = true;
+    modalContent.appendChild(modalVideo);
+
     const gallery = document.querySelector(".galeria");
+    let originalPosition = { top: 0, left: 0, width: 0, height: 0 };
+    let originalElement = null;
+    let isAnimating = false; // Controla si hay animación en progreso
 
-    // Evento para cerrar el modal al hacer clic fuera de la imagen
-    modal.addEventListener("click", () => {
-        // Reducir la imagen con animación
-        modalImg.style.transform = "scale(0.1)"; // Reducir la imagen al hacer clic en el modal
+    const closeModal = () => {
+        if (isAnimating) return; // Evita cerrar si la animación está en curso
+        isAnimating = true;
 
-        // Restaurar el estado del fondo (blur y visibilidad del modal)
-        gallery.style.filter = "blur(0px)"; // Quitar el blur
-        document.body.style.overflow = "auto";
+        // Inicia la transición de color de fondo inmediatamente
+        modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
+
+        if (modalImg.style.display === "block") {
+            modalContent.style.width = originalPosition.width + "px";
+            modalContent.style.height = originalPosition.height + "px";
+            modalContent.style.top = originalPosition.top - window.scrollY + "px";
+            modalContent.style.left = originalPosition.left - window.scrollX + "px";
+            modalContent.style.transform = "none";
+        } else if (modalVideo.style.display === "block") {
+            modalContent.style.width = originalPosition.width + "px";
+            modalContent.style.height = originalPosition.height + "px";
+            modalContent.style.top = originalPosition.top - window.scrollY + "px";
+            modalContent.style.left = originalPosition.left - window.scrollX + "px";
+            modalContent.style.transform = "none";
+        }
+
+        gallery.style.filter = "blur(0px)";
+
+        // Mantenemos el scroll desactivado hasta que termine la animación
         setTimeout(() => {
-            modal.style.opacity = "0"; // Desvanecer el modal
+            if (originalElement) {
+                originalElement.style.visibility = "visible";
+            }
             setTimeout(() => {
-                modal.style.display = "none"; // Ocultar el modal después de la animación
-            }, 300);
-        }, 150); // Esperar a que la imagen termine de reducirse
-    });
+                modal.style.display = "none";
+                modalImg.style.display = "none";
+                modalVideo.style.display = "none";
+                modalVideo.pause();
+                modalVideo.src = "";
+                document.body.style.overflow = "auto"; // Activar scroll al terminar todo
+                isAnimating = false; // Animación terminada
+            }, 500); // Espera a que termine la animación de cierre
+        }, 500);
+    };
 
-    // Seleccionar todas las imágenes de la galería
+    modal.addEventListener("click", closeModal);
+
+    const openModal = (element, isVideo) => {
+        if (isAnimating) return; // Evita abrir si hay otra animación en progreso
+        isAnimating = true;
+
+        const rect = element.getBoundingClientRect();
+        originalElement = element;
+
+        originalPosition = {
+            top: rect.top + window.scrollY,
+            left: rect.left + window.scrollX,
+            width: rect.width,
+            height: rect.height,
+        };
+
+        const aspectRatio = isVideo
+            ? element.videoWidth / element.videoHeight
+            : element.naturalWidth / element.naturalHeight;
+        const screenWidth = window.innerWidth * 0.9;
+        const screenHeight = window.innerHeight * 0.9;
+
+        let finalWidth, finalHeight;
+        if (screenWidth / screenHeight > aspectRatio) {
+            finalHeight = screenHeight;
+            finalWidth = finalHeight * aspectRatio;
+        } else {
+            finalWidth = screenWidth;
+            finalHeight = finalWidth / aspectRatio;
+        }
+
+        if (isVideo) {
+            modalVideo.src = element.src;
+            modalVideo.style.display = "block";
+        } else {
+            modalImg.src = element.src;
+            modalImg.style.display = "block";
+        }
+
+        modalContent.style.width = originalPosition.width + "px";
+        modalContent.style.height = originalPosition.height + "px";
+        modalContent.style.top = originalPosition.top - window.scrollY + "px";
+        modalContent.style.left = originalPosition.left - window.scrollX + "px";
+        modalContent.style.transform = "none";
+
+        modal.style.display = "block";
+
+        setTimeout(() => {
+            modal.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // Fondo oscuro al abrir
+            modal.style.opacity = "1";
+
+            if (originalElement) {
+                originalElement.style.visibility = "hidden";
+            }
+
+            modalContent.style.width = finalWidth + "px";
+            modalContent.style.height = finalHeight + "px";
+            modalContent.style.top = "50%";
+            modalContent.style.left = "50%";
+            modalContent.style.transform = "translate(-50%, -50%)";
+
+            setTimeout(() => {
+                isAnimating = false; // Animación terminada
+            }, 500); // Tiempo igual al de la transición
+        }, 10);
+
+        gallery.style.filter = "blur(10px)";
+        gallery.style.transition = "filter 0.7s ease";
+        document.body.style.overflow = "hidden"; // Desactivar scroll al abrir
+    };
+
     const images = document.querySelectorAll(".galeria .img");
-    const videos = document.querySelectorAll(".galeria .video");
-
     images.forEach(image => {
-        image.addEventListener("click", () => {
-            modalImg.src = image.src; // Establece la fuente de la imagen clickeada
-            modal.style.display = "flex"; // Mostrar el modal
-            setTimeout(() => {
-                modal.style.opacity = "1"; // Hacer visible el modal
-                modalImg.style.transform = "scale(1)"; // Ampliar la imagen con animación
-            }, 10);
-
-            // Animación de ampliación
-            gallery.style.transition = "filter 0.3s ease"; // Añadir transición suave al blur
-            gallery.style.filter = "blur(10px)"; // Añadir blur con transición
-            // Bloquear el desplazamiento del fondo
-            document.body.style.overflow = "hidden";
-        });
+        image.addEventListener("click", () => openModal(image, false));
     });
 
+    const videos = document.querySelectorAll(".galeria .video");
     videos.forEach(video => {
-        video.addEventListener("click", () => {
-            modalImg.src = video.src; // Establece la fuente del video clickeado
-            modal.style.display = "flex"; // Mostrar el modal
-            setTimeout(() => {
-                modal.style.opacity = "1"; // Hacer visible el modal
-                modalImg.style.transform = "scale(1)"; // Ampliar el video con animación
-            }, 10);
-
-            // Animación de ampliación
-            gallery.style.transition = "filter 0.3s ease"; // Añadir transición suave al blur
-            gallery.style.filter = "blur(10px)"; // Añadir blur con transición
-            // Bloquear el desplazamiento del fondo
-            document.body.style.overflow = "hidden";
-        });
+        video.addEventListener("click", () => openModal(video, true));
     });
 });
