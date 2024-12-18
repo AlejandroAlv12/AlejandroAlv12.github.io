@@ -6,66 +6,49 @@ body {
     background-color: #f8f8f8;
 }
 
+/* Oculta la barra de desplazamiento visualmente pero mantiene su funcionalidad */
+body, .galeria {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+html::-webkit-scrollbar, .galeria::-webkit-scrollbar {
+    width: 0;
+    height: 0; /* Para scroll horizontal */
+}
+
 .galeria {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    /* Ajusta el tamaño mínimo/máximo de las columnas */
-    gap: 15px;
-    /* Espaciado entre imágenes */
+    gap: 15px; /* Espaciado entre elementos */
     padding: 20px;
-    justify-items: center;
-    /* Centra las imágenes horizontalmente */
-    transition: filter .6s ease;
+    justify-items: center; /* Centra los elementos horizontalmente */
+    transition: filter 0.6s ease;
+}
+
+.img, .video {
+    width: 100%;
+    height: 250px; /* Altura fija para mantener proporción */
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .img {
-    width: 100%;
-    /* Asegura que las imágenes ocupen todo el ancho de su contenedor */
-    height: 250px;
-    /* Altura fija para mantener la proporción */
-    object-fit: fill;
-    /* Recorta las imágenes para ajustarlas al contenedor */
-    border-radius: 20px;
-    /* Bordes redondeados para un diseño más atractivo */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra sutil */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: fill; /* Ajuste de imagen */
 }
-
-
 
 .video {
-    width: 100%;
-    /* Asegura que las imágenes ocupen todo el ancho de su contenedor */
-    height: 250px;
-    /* Altura fija para mantener la proporción */
-    object-fit: cover;
-    /* Recorta las imágenes para ajustarlas al contenedor */
-    border-radius: 20px;
-    /* Bordes redondeados para un diseño más atractivo */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra sutil */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover; /* Ajuste de video */
 }
-
-
 
 @media (max-width: 600px) {
     .galeria {
         grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-        /* Ajusta el tamaño mínimo/máximo de las columnas */
-    }
-    .img{
-        width: 100%;
-    /* Asegura que las imágenes ocupen todo el ancho de su contenedor */
-    height: 200px;
-    /* Altura fija para mantener la proporción */
     }
 
-    .video{
-        width: 100%;
-    /* Asegura que las imágenes ocupen todo el ancho de su contenedor */
-    height: 200px;
-    /* Altura fija para mantener la proporción */
+    .img, .video {
+        height: 200px; /* Ajuste de altura para pantallas pequeñas */
     }
 }
