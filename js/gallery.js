@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.style.width = "100%";
     modal.style.height = "100%";
     modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
-    modal.style.transition = "background-color 0.5s ease"; // Transición para el fondo
+    modal.style.transition = "background-color 0.4s ease";
     modal.style.display = "none";
     modal.style.zIndex = "1000";
     modal.style.overflow = "hidden";
@@ -15,8 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const modalContent = document.createElement("div");
     modalContent.style.position = "absolute";
-    modalContent.style.transition = "transform 0.5s ease, top 0.5s ease, left 0.5s ease, right 0.5s ease, width 0.5s ease, height 0.5s ease, border-radius 0.5s ease";
+    modalContent.style.transition =
+        "transform 0.4s ease, top 0.4s ease, left 0.4s ease, width 0.4s ease, height 0.4s ease, border-radius 0.4s ease";
     modalContent.style.borderRadius = "20px";
+    modalContent.style.boxShadow = "0 0 15px rgba(0, 0, 0, 0.3)";
     modal.appendChild(modalContent);
 
     const modalImg = document.createElement("img");
@@ -31,20 +33,19 @@ document.addEventListener("DOMContentLoaded", () => {
     modalVideo.style.height = "100%";
     modalVideo.style.display = "none";
     modalVideo.style.borderRadius = "20px";
-    modalVideo.controls = false; // Desactivar controles inicialmente
-    modalVideo.muted = true; // Opción: se inicia sin sonido
+    modalVideo.controls = false; // Los controles están ocultos inicialmente
+    modalVideo.muted = true; // El video comienza sin sonido
     modalContent.appendChild(modalVideo);
 
     const gallery = document.querySelector(".galeria");
     let originalPosition = { top: 0, left: 0, width: 0, height: 0 };
     let originalElement = null;
-    let isAnimating = false; // Controla si hay animación en progreso
+    let isAnimating = false;
 
     const closeModal = () => {
-        if (isAnimating) return; // Evita cerrar si la animación está en curso
+        if (isAnimating) return;
         isAnimating = true;
 
-        // Inicia la transición de color de fondo inmediatamente
         modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
 
         if (modalImg.style.display === "block") {
@@ -60,33 +61,30 @@ document.addEventListener("DOMContentLoaded", () => {
             modalContent.style.left = originalPosition.left - window.scrollX + "px";
             modalContent.style.transform = "none";
 
-            // Pausa y reinicia el video
             modalVideo.pause();
-            modalVideo.currentTime = 0; // Reinicia el video al inicio
+            modalVideo.currentTime = 0;
+            modalVideo.controls = false; // Oculta los controles al cerrar
         }
 
         gallery.style.filter = "blur(0px)";
 
-        // Mantenemos el scroll desactivado hasta que termine la animación
         setTimeout(() => {
             if (originalElement) {
                 originalElement.style.visibility = "visible";
             }
-            setTimeout(() => {
-                modal.style.display = "none";
-                modalImg.style.display = "none";
-                modalVideo.style.display = "none";
-                modalVideo.src = ""; // Limpia la fuente del video
-                document.body.style.overflow = "auto"; // Activar scroll al terminar todo
-                isAnimating = false; // Animación terminada
-            }, 500); // Espera a que termine la animación de cierre
+            modal.style.display = "none";
+            modalImg.style.display = "none";
+            modalVideo.style.display = "none";
+            modalVideo.src = ""; // Limpia la fuente del video
+            document.body.style.overflow = "auto";
+            isAnimating = false;
         }, 500);
     };
 
     modal.addEventListener("click", closeModal);
 
     const openModal = (element, isVideo) => {
-        if (isAnimating) return; // Evita abrir si hay otra animación en progreso
+        if (isAnimating) return;
         isAnimating = true;
 
         const rect = element.getBoundingClientRect();
@@ -131,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "block";
 
         setTimeout(() => {
-            modal.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // Fondo oscuro al abrir
+            modal.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
             modal.style.opacity = "1";
 
             if (originalElement) {
@@ -146,28 +144,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (isVideo) {
                 setTimeout(() => {
-                    modalVideo.controls = true; // Activar controles
-                    modalVideo.play(); // Reproducir automáticamente
-                }, 500); // Tiempo de la transición
+                    modalVideo.controls = true; // Muestra los controles al ampliar
+                    modalVideo.play();
+                    
+                }, 1);
             }
 
             setTimeout(() => {
-                isAnimating = false; // Animación terminada
-            }, 500); // Tiempo igual al de la transición
-        }, 10);
+                isAnimating = false;
+            }, 1);
+        }, 1);
 
         gallery.style.filter = "blur(10px)";
-        gallery.style.transition = "filter 0.7s ease";
-        document.body.style.overflow = "hidden"; // Desactivar scroll al abrir
+        gallery.style.transition = "filter 0.4s ease";
+        document.body.style.overflow = "hidden";
     };
 
     const images = document.querySelectorAll(".galeria .img");
-    images.forEach(image => {
+    images.forEach((image) => {
         image.addEventListener("click", () => openModal(image, false));
     });
 
     const videos = document.querySelectorAll(".galeria .video");
-    videos.forEach(video => {
+    videos.forEach((video) => {
         video.addEventListener("click", () => openModal(video, true));
     });
 });
