@@ -51,6 +51,14 @@ body {
     will-change: transform;
 }
 
+/* Clase para desactivar el scroll */
+.no-scroll {
+    overflow: hidden;
+    height: 100%;
+    /* Asegura que el contenido no se mueva */
+}
+
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -299,16 +307,23 @@ body {
 /* Estilos de la tabla de precios */
 .price__table {
     padding-top: 60px;
-    display: -webkit-box; /* Versiones antiguas de Safari */
-    display: -ms-flexbox; /* IE 10 */
+    display: -webkit-box;
+    /* Versiones antiguas de Safari */
+    display: -ms-flexbox;
+    /* IE 10 */
     display: flex;
-    -webkit-box-pack: center; /* Versiones antiguas de Safari */
-    -ms-flex-pack: center; /* IE 10 */
+    -webkit-box-pack: center;
+    /* Versiones antiguas de Safari */
+    -ms-flex-pack: center;
+    /* IE 10 */
     justify-content: space-evenly;
-    -webkit-box-align: center; /* Versiones antiguas de Safari */
-    -ms-flex-align: center; /* IE 10 */
+    -webkit-box-align: center;
+    /* Versiones antiguas de Safari */
+    -ms-flex-align: center;
+    /* IE 10 */
     align-items: center;
-    flex-wrap: nowrap; /*wrap*/
+    flex-wrap: nowrap;
+    /*wrap*/
     gap: 2.5em;
 }
 
@@ -325,14 +340,17 @@ body {
     --bg-cta: #fff;
     --color-cta: #1d1d5c;
     --color-items: #696871;
-    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Versiones antiguas de Safari */
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Versiones antiguas de Safari */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    -webkit-transition: transform 0.3s ease; /* Versiones antiguas de Safari */
+    -webkit-transition: transform 0.3s ease;
+    /* Versiones antiguas de Safari */
     transition: transform 0.3s ease;
 }
 
 .price__element:hover {
-    -webkit-transform: scale(1.05); /* Versiones antiguas de Safari */
+    -webkit-transform: scale(1.05);
+    /* Versiones antiguas de Safari */
     transform: scale(1.05);
 }
 
@@ -378,7 +396,7 @@ body {
     text-decoration: none;
     background-color: var(--bg-cta);
     font-weight: 600;
-    
+
     color: var(--color-cta);
     transition: all .5s;
     cursor: pointer;
@@ -398,18 +416,27 @@ body {
 .album__body {
     background-color: #e5e5f7;
     display: flex;
-    flex-direction: column; /* Organiza los hijos en columna */
-    align-items: center; /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente */
-    min-height: 100vh; /* Asegura que ocupa toda la pantalla */
+    flex-direction: column;
+    /* Organiza los hijos en columna */
+    align-items: center;
+    /* Centra horizontalmente */
+    justify-content: center;
+    /* Centra verticalmente */
+    min-height: 100vh;
+    /* Asegura que ocupa toda la pantalla */
 }
 
 .album__container {
-    width: 100%; /* Asegura que ocupe todo el ancho */
-    display: flex; /* Aplica flexbox para centrar los hijos */
-    flex-direction: column; /* Apila los elementos verticalmente */
-    align-items: center; /* Centra los elementos horizontalmente */
-    justify-content: center; /* Centra los elementos verticalmente */
+    width: 100%;
+    /* Asegura que ocupe todo el ancho */
+    display: flex;
+    /* Aplica flexbox para centrar los hijos */
+    flex-direction: column;
+    /* Apila los elementos verticalmente */
+    align-items: center;
+    /* Centra los elementos horizontalmente */
+    justify-content: center;
+    /* Centra los elementos verticalmente */
 }
 
 .album__wrapper {
@@ -417,25 +444,31 @@ body {
     margin: 0 auto;
     max-width: 100%;
     max-height: 700px;
-    display: flex; /* Flexbox para centrar los hijos */
+    display: flex;
+    /* Flexbox para centrar los hijos */
     flex-direction: column;
-    align-items: center; /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente */
+    align-items: center;
+    /* Centra horizontalmente */
+    justify-content: center;
+    /* Centra verticalmente */
     scroll-behavior: smooth;
 }
 
 .cta__album {
-    margin: 2px auto 30px auto; /* Centra el botón */
+    margin: 2px auto 30px auto;
+    /* Centra el botón */
     border-style: none;
-    display: block; /* Cambia a block para que el margen auto funcione */
-    text-align: center; /* Asegura el contenido centrado si hay texto */
+    display: block;
+    /* Cambia a block para que el margen auto funcione */
+    text-align: center;
+    /* Asegura el contenido centrado si hay texto */
 }
 
 
 
 
 
-.cta__album:hover{
+.cta__album:hover {
     cursor: pointer;
 }
 
@@ -987,86 +1020,95 @@ body {
         font-size: 1.8rem;
     }
 
-/* Asegurando que todos los navegadores reconozcan las propiedades personalizadas */
-:root {
-    --color-plan: #696871;
-    --color-price: #1d293f;
-    --bg-cta: #fff;
-    --color-cta: #1d1d5c;
-    --color-items: #696871;
-}
+    /* Asegurando que todos los navegadores reconozcan las propiedades personalizadas */
+    :root {
+        --color-plan: #696871;
+        --color-price: #1d293f;
+        --bg-cta: #fff;
+        --color-cta: #1d1d5c;
+        --color-items: #696871;
+    }
 
-/* Alineación de texto centrado */
-.price {
-    text-align: center;
-}
+    /* Alineación de texto centrado */
+    .price {
+        text-align: center;
+    }
 
-/* Ocultar entradas de radio */
-.price__slider input[type=radio] {
-    display: none;
-}
+    /* Ocultar entradas de radio */
+    .price__slider input[type=radio] {
+        display: none;
+    }
 
-/* Estilos del deslizador de precios */
-.price__slider {
-    display: -webkit-box; /* Versiones antiguas de Safari */
-    display: -ms-flexbox; /* IE 10 */
-    display: flex;
-    column-gap: 1rem;
-    position: absolute;
-    top: 1.25rem;
-    left: 50%;
-    -webkit-transform: translateX(-50%); /* Versiones antiguas de Safari */
-    transform: translateX(-50%);
-    z-index: 50;
-}
+    /* Estilos del deslizador de precios */
+    .price__slider {
+        display: -webkit-box;
+        /* Versiones antiguas de Safari */
+        display: -ms-flexbox;
+        /* IE 10 */
+        display: flex;
+        column-gap: 1rem;
+        position: absolute;
+        top: 1.25rem;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        /* Versiones antiguas de Safari */
+        transform: translateX(-50%);
+        z-index: 50;
+    }
 
-.price__slider a {
-    width: .7rem;
-    height: .7rem;
-    border-radius: 50%;
-    background-color: #001A49;
-    cursor: pointer;
-    opacity: .75;
-    -webkit-transition: opacity ease-in-out 250ms; /* Versiones antiguas de Safari */
-    transition: opacity ease-in-out 250ms;
-}
+    .price__slider a {
+        width: .7rem;
+        height: .7rem;
+        border-radius: 50%;
+        background-color: #001A49;
+        cursor: pointer;
+        opacity: .75;
+        -webkit-transition: opacity ease-in-out 250ms;
+        /* Versiones antiguas de Safari */
+        transition: opacity ease-in-out 250ms;
+    }
 
-.price__slider a:hover {
-    opacity: 1;
-}
+    .price__slider a:hover {
+        opacity: 1;
+    }
 
-.price__slider a::backdrop {
-    opacity: 1;
-}
+    .price__slider a::backdrop {
+        opacity: 1;
+    }
 
-/* Estilos del contenedor de precios */
-.price__wrapper {
-    position: relative;
-    margin: 0 auto;
-    max-width: 100%;
-    -webkit-scroll-behavior: smooth; /* Versiones antiguas de Safari */
-    scroll-behavior: smooth;
-}
+    /* Estilos del contenedor de precios */
+    .price__wrapper {
+        position: relative;
+        margin: 0 auto;
+        max-width: 100%;
+        -webkit-scroll-behavior: smooth;
+        /* Versiones antiguas de Safari */
+        scroll-behavior: smooth;
+    }
 
-/* Estilos de la tabla de precios */
-.price__table {
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    -webkit-scroll-snap-type: x mandatory; /* Versiones antiguas de Safari */
-    scroll-snap-type: x mandatory;
-    -webkit-scroll-behavior: smooth; /* Versiones antiguas de Safari */
-    scroll-behavior: smooth;
-}
+    /* Estilos de la tabla de precios */
+    .price__table {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        -webkit-scroll-snap-type: x mandatory;
+        /* Versiones antiguas de Safari */
+        scroll-snap-type: x mandatory;
+        -webkit-scroll-behavior: smooth;
+        /* Versiones antiguas de Safari */
+        scroll-behavior: smooth;
+    }
 
-.price__element {
-    width: 75%;
-    flex: 1 0 80%;
-    -webkit-scroll-behavior: smooth; /* Versiones antiguas de Safari */
-    scroll-behavior: smooth;
-    -webkit-scroll-snap-align: center; /* Versiones antiguas de Safari */
-    scroll-snap-align: center;
-    margin-bottom: 1.25rem;
-}
+    .price__element {
+        width: 75%;
+        flex: 1 0 80%;
+        -webkit-scroll-behavior: smooth;
+        /* Versiones antiguas de Safari */
+        scroll-behavior: smooth;
+        -webkit-scroll-snap-align: center;
+        /* Versiones antiguas de Safari */
+        scroll-snap-align: center;
+        margin-bottom: 1.25rem;
+    }
 
     .button__class {
         transition: all 1s ease-in-out;
