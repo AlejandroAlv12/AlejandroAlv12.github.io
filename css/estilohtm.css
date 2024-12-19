@@ -40,7 +40,7 @@ html::-webkit-scrollbar, .galeria::-webkit-scrollbar {
 }
 
 .video {
-    object-fit: cover; /* Ajuste de video */
+    object-fit: fill; /* Ajuste de video */
 }
 
 video::-webkit-media-controls {

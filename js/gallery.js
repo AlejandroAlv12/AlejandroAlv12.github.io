@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalImg = document.createElement("img");
     modalImg.style.width = "100%";
     modalImg.style.height = "100%";
+    modalImg.style.objectFit = "fill"; // Permitir que las imágenes se deformen
     modalImg.style.display = "none";
     modalImg.style.borderRadius = "20px";
     modalContent.appendChild(modalImg);
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalVideo = document.createElement("video");
     modalVideo.style.width = "100%";
     modalVideo.style.height = "100%";
+    modalVideo.style.objectFit = "fill"; // Permitir que los videos se deformen
     modalVideo.style.display = "none";
     modalVideo.style.borderRadius = "20px";
     modalVideo.controls = false; // Los controles están ocultos inicialmente
@@ -48,22 +50,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
 
-        if (modalImg.style.display === "block") {
-            modalContent.style.width = originalPosition.width + "px";
-            modalContent.style.height = originalPosition.height + "px";
-            modalContent.style.top = originalPosition.top - window.scrollY + "px";
-            modalContent.style.left = originalPosition.left - window.scrollX + "px";
-            modalContent.style.transform = "none";
-        } else if (modalVideo.style.display === "block") {
-            modalContent.style.width = originalPosition.width + "px";
-            modalContent.style.height = originalPosition.height + "px";
-            modalContent.style.top = originalPosition.top - window.scrollY + "px";
-            modalContent.style.left = originalPosition.left - window.scrollX + "px";
-            modalContent.style.transform = "none";
+        modalContent.style.width = originalPosition.width + "px";
+        modalContent.style.height = originalPosition.height + "px";
+        modalContent.style.top = originalPosition.top - window.scrollY + "px";
+        modalContent.style.left = originalPosition.left - window.scrollX + "px";
+        modalContent.style.transform = "none";
 
+        if (modalVideo.style.display === "block") {
             modalVideo.pause();
             modalVideo.currentTime = 0;
-            modalVideo.controls = false; // Oculta los controles al cerrar
+            modalVideo.controls = false;
         }
 
         gallery.style.filter = "blur(0px)";
@@ -75,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.style.display = "none";
             modalImg.style.display = "none";
             modalVideo.style.display = "none";
-            modalVideo.src = ""; // Limpia la fuente del video
+            modalVideo.src = "";
             document.body.style.overflow = "auto";
             isAnimating = false;
         }, 500);
@@ -130,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
             modal.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-            modal.style.opacity = "1";
 
             if (originalElement) {
                 originalElement.style.visibility = "hidden";
@@ -144,9 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (isVideo) {
                 setTimeout(() => {
-                    modalVideo.controls = true; // Muestra los controles al ampliar
+                    modalVideo.controls = true;
                     modalVideo.play();
-                    
                 }, 1);
             }
 
