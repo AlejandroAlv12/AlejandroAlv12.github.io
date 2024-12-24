@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
             modalVideo.src = "";
             document.body.style.overflow = "auto";
             isAnimating = false;
-        }, 500);
+        }, 400);
     };
 
     modal.addEventListener("click", closeModal);

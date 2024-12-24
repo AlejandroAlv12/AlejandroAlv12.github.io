@@ -8,7 +8,7 @@
 :root {
     /* rojos blancos y azul negros */
     --padding-container: 100px 0;
-    --color-title: #001A49;
+    --color-title: #1d1d5c;
     --color-card: #e5e5f7;
     --color-cta: #cf1515;
 }
@@ -58,6 +58,36 @@ body {
     /* Asegura que el contenido no se mueva */
 }
 
+/* Estilo general de la barra de desplazamiento */
+body::-webkit-scrollbar {
+    width: 15px;
+    /* Ancho de la barra */
+
+}
+
+/* Fondo transparente del track */
+body::-webkit-scrollbar-track {
+    background: var(--color-price);
+    /* Fondo completamente transparente */
+}
+
+/* Estilo del pulgar (thumb) */
+body::-webkit-scrollbar-thumb {
+    background: var(--color-card);
+    /* Pulgar con opacidad */
+    border-radius: 15px;
+    /* Bordes redondeados */
+    border: solid 3px var(--color-price);
+    transition: all .5s;
+}
+
+/* Para que las barras no ocupen espacio extra */
+body {
+    overflow: overlay;
+    /* Habilita barras flotantes en navegadores compatibles */
+    margin: 0;
+    /* Elimina márgenes extra */
+}
 
 .container {
     width: 90%;
@@ -66,6 +96,23 @@ body {
     overflow: hidden;
     padding: var(--padding-container);
 }
+.hidden {
+    opacity: 0.3;
+    scale: 0.9;
+    transform: translateY(30px);
+    filter: blur(2px);
+    transition: opacity 0.9s, filter 0.9s, transform 0.5s ease, scale 0.5s ease;
+}
+
+.show {
+    opacity: 1;
+    scale: 1;
+    transform: translateY(0);
+    filter: blur(0, 0, 0);
+    filter: blur(0px);
+    
+}
+
 
 .hero {
     width: 100%;
@@ -231,7 +278,12 @@ body {
     width: 260px;
     overflow: hidden;
     margin: 0 auto;
+    padding: 0;
 
+}
+
+.about__paragraph__container{
+    padding-bottom: 10px ;
 }
 
 .about__icon {
@@ -322,9 +374,10 @@ body {
     -ms-flex-align: center;
     /* IE 10 */
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     /*wrap*/
     gap: 2.5em;
+    
 }
 
 /* Estilos de los elementos de precio */
@@ -333,6 +386,7 @@ body {
     text-align: center;
     border-radius: 10px;
     width: 330px;
+    min-width: 275px;
     padding: 40px;
     /* Creación de propiedades personalizadas */
     --color-plan: #696871;
@@ -414,6 +468,7 @@ body {
 
 /* album */
 .album__body {
+    
     background-color: #e5e5f7;
     display: flex;
     flex-direction: column;
@@ -474,14 +529,19 @@ body {
 
 /* cards */
 .card__list {
+    width: 100%;
+    display: flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    padding-left: 30%;
+    padding-right: 60%;
 }
 
 .card__item {
+    box-sizing: content-box;
     scroll-behavior: smooth;
     scroll-snap-align: center;
     color: var(--color-title);
@@ -495,14 +555,12 @@ body {
     background: #ffffff;
     min-width: 400px;
     padding: 35px;
-    margin: 30px;
+    margin:  35px;
     border-radius: 23px;
     transition: all .5s;
 }
 
-.card__item:hover {
-    transform: scale(1.1);
-}
+
 
 .card__content {
     transition: filter 1s ease;
@@ -512,12 +570,13 @@ body {
     filter: blur(0px);
 }
 
-.scaled img {
+.scaled  img {
     scale: 3.04 2.8;
     border-radius: 50%;
     translate: 0% 71.5%;
     border-radius: 6px;
 }
+
 
 /* Estilo de la barra de scroll */
 .card__list::-webkit-scrollbar {
@@ -540,6 +599,7 @@ body {
     background-color: #ffffff;
     /* Color de la barra */
     border-radius: 10px;
+    border: solid 0px;
     /* Bordes redondeados */
     scroll-snap-align: center;
     transition: all 1s;
@@ -565,11 +625,10 @@ body {
     padding-top: 60px;
     padding-bottom: 60px;
 }
-
 .album__image {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
+    border-radius: 20px;
     object-fit: cover;
     /*para no distorcionar la imagen*/
     object-position: 50% 50%;
@@ -591,23 +650,27 @@ body {
     padding: 10px 35px;
     color: #1d1d5c;
     background-color: #c8c8e775;
+    border-radius: 15px;
+    cursor: pointer;
+    border: none;
+}
+.expand__button__div{
     -webkit-backdrop-filter: blur(10px);
     -moz-backdrop-filter: blur(10px);
     -ms-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 15px;
-    cursor: pointer;
-    border: none;
-    transition: scale .5s ease;
+    background-color: #ff000000;
+    transition: all .5s ease;
     z-index: 41;
 }
 
-.expand__button:hover {
+ .expand__button__div:hover {
     scale: 1.1;
 
 }
 
-.expand__button:active {
+.expand__button__div:active {
     scale: .9;
 }
 
@@ -633,11 +696,11 @@ body {
 }
 
 .questions__padding--add {
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 .questions__answer {
-    padding: 0px 30px 0px 30px;
+    padding: 0px 30px ;
     /* 0px arriba 30px derecha e izquierda 0px abajo*/
     overflow: hidden;
 
@@ -691,7 +754,7 @@ body {
 /* footer */
 
 .footer {
-    background-color: #1d293f;
+    background-color: var(--color-price);
 }
 
 .footer__title {
@@ -736,7 +799,7 @@ body {
     padding: 15px 20px;
     font-weight: 600;
     font-size: 1.8rem;
-    margin: auto;
+    margin: auto 10px;
     color: #fff;
     border: none;
     display: flex;
@@ -753,7 +816,7 @@ body {
 }
 
 .rock__number:hover {
-    background: #000000;
+    background: #0c111b;
     transition: all .4s;
     scale: 1;
 }
@@ -769,7 +832,7 @@ body {
     margin-left: 250px;
     margin-top: 40px;
     font-size: small;
-    background: #0059ff;
+    background: #cf1515;
     padding: 8px 10px 5px;
     border-radius: 20px;
     /* display: none; */
@@ -784,7 +847,7 @@ body {
     position: absolute;
     left: 35%;
     top: 26px;
-    background: #0059ff;
+    background: #cf1515;
     width: 20px;
     height: 20px;
     clip-path: polygon(0% 0%, 50% 40%, 100% 0%);
@@ -859,10 +922,26 @@ body {
     }
 
 
+
 }
 
 /* responsive para tablets */
 @media (max-width:800px) {
+    .hero::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url(../images/fachada.jpg);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 90%, 0 85%);
+        background-position: 50% 13%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        z-index: -100;
+    }
     .nav__title {
         font-weight: 10;
         font-size: 70%;
@@ -909,10 +988,10 @@ body {
     }
 
     .filter--show {
-        -webkit-backdrop-filter: blur(60px);
-        -moz-backdrop-filter: blur(60px);
-        -ms-backdrop-filter: blur(60px);
-        backdrop-filter: blur(60px);
+        -webkit-backdrop-filter: blur(30px);
+        -moz-backdrop-filter: blur(30px);
+        -ms-backdrop-filter: blur(30px);
+        backdrop-filter: blur(30px);
         transition: 0.5s;
         animation: transition ease-in-out;
         will-change: transform;
@@ -1090,6 +1169,7 @@ body {
     .price__table {
         flex-wrap: nowrap;
         overflow-x: scroll;
+        padding: 40px;
         -webkit-scroll-snap-type: x mandatory;
         /* Versiones antiguas de Safari */
         scroll-snap-type: x mandatory;
@@ -1099,7 +1179,9 @@ body {
     }
 
     .price__element {
-        width: 75%;
+        width: 95%;
+        margin: 40px 10% ;
+        padding: 40px;
         flex: 1 0 80%;
         -webkit-scroll-behavior: smooth;
         /* Versiones antiguas de Safari */
@@ -1135,6 +1217,7 @@ body {
 
     .price__table::-webkit-scrollbar-thumb {
         background-color: var(--color-card);
+        
         border-radius: 5px;
         cursor: grab;
     }
