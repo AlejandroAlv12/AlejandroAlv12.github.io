@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalContent = document.createElement("div");
     modalContent.style.position = "absolute";
     modalContent.style.transition =
-        "transform 0.4s ease, top 0.4s ease, left 0.4s ease, width 0.4s ease, height 0.4s ease, border-radius 0.4s ease";
+        "transform 0.4s ease, top 0.4s ease, left 0.4s ease, width 0.4s ease, height 0.4s ease, border-radius 0.4s ease, box-shadow 0.4s ease";
     modalContent.style.borderRadius = "20px";
     modalContent.style.boxShadow = "0 0 15px rgba(0, 0, 0, 0.3)";
     modal.appendChild(modalContent);
