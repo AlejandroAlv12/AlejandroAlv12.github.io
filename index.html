@@ -47,14 +47,17 @@
             <div id="filterID" class="filter"></div>
 
             <ul class="nav__link nav__link--menu hidden">
-                <li class="nav__item about__button about__button__header">
-                    <a href="#about__projects" class="nav__links">About</a>
+                <li class="nav__item contact__button location__button__header">
+                    <a href="#knowledge" class="nav__links">Location</a>
                 </li>
                 <li class="nav__item quote__button quote__button__header">
                     <a href="#price" class="nav__links">Quote</a>
                 </li>
-                <li class="nav__item contact__button location__button__header">
-                    <a href="#knowledge" class="nav__links">Location</a>
+                <li class="nav__item gallery__button gallery__button__header">
+                    <a href="#gallery" class="nav__links">Gallery</a>
+                </li>
+                <li class="nav__item question__button question__button__header">
+                    <a href="#questions" class="nav__links">Questions</a>
                 </li>
                 <li class="nav__item contact__button contact__button__header">
                     <a href="#footer" class="nav__links">Contact</a>
@@ -160,7 +163,7 @@
                             <p class="price__features hidden">And more +</p>
                         </div>
 
-                        <a href="#footer" class="price__cta hidden">Quote</a>
+                        <!-- <a href="#footer" class="price__cta hidden">Quote</a> -->
                     </div>
                     <div id="slider__2" class="price__element price__element--best ">
                         <p class="price__name"></p>
@@ -174,7 +177,7 @@
                             <p class="price__features hidden">And more +</p>
                         </div>
 
-                        <a href="#footer" class="price__cta hidden">Contact us</a>
+                        <!-- <a href="#footer" class="price__cta hidden">Contact us</a> -->
                     </div>
                     <div id="slider__3" class="price__element ">
                         <p class="price__name"></p>
@@ -188,7 +191,7 @@
                             <p class="price__features hidden">And more +</p>
                         </div>
 
-                        <a href="#footer" class="price__cta hidden">Quote</a>
+                        <!-- <a href="#footer" class="price__cta hidden">Quote</a> -->
                     </div>
                 </div>
 
@@ -202,7 +205,7 @@
             </div>
         </section>
 
-        <section class="album__body ">
+        <section class="album__body " id="gallery">
             <div class="album__container  container swiper">
                 <div class="album__wrapper">
                     <a href="./html/gallery.htm" class="cta cta__album hidden">Watch all</a>
@@ -305,8 +308,8 @@
             </div>
         </section>
 
-        <section class="questions container">
-            <h2 class="subtitle hidden">recent questions</h2>
+        <section class="questions container" id="questions">
+            <h2 class="subtitle hidden">Recent questions</h2>
             <p class="questions__paragraph hidden">This section containt some of the most frecuently questions, if your
                 question is not here you can write us, and we will reply as quickly as possible.</p>
 
@@ -319,63 +322,60 @@
                                 <img src="./images/arrow.svg" alt="No se pudo cagar la imagen" class="questions__img">
                             </span>
                         </h3>
-                        <div class="hidden">
-                            <p class="questions__show hidden ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Laudantium
-                                quia ducimus repellendus, laborum fuga deserunt illo adipisci amet unde quo dicta,
-                                eveniet
-                                provident, sunt perspiciatis?Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Laudantium
-                                quia ducimus repellendus, laborum fuga deserunt illo adipisci amet unde quo dicta,
-                                eveniet
-                                provident, sunt perspiciatis?</p>
-                        </div>
+                        <p class="questions__show ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Laudantium
+                            quia ducimus repellendus, laborum fuga deserunt illo adipisci amet unde quo dicta,
+                            eveniet
+                            provident, sunt perspiciatis?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Laudantium
+                            quia ducimus repellendus, laborum fuga deserunt illo adipisci amet unde quo dicta,
+                            eveniet
+                            provident, sunt perspiciatis?</p>
                     </div>
                 </article>
                 <article class="questions__padding">
-                    <div class="questions__answer hidden">
-                        <h3 class="questions__title">
+                    <div class="questions__answer">
+                        <h3 class="questions__title hidden">
                             What offer you?
                             <span class="questions__arrow">
                                 <img src="./images/arrow.svg" alt="No se pudo cagar la imagen" class="questions__img">
                             </span>
                         </h3>
-                        <div class="hidden">
-                            <p class="questions__show ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Laudantium
-                                quia ducimus repellendus, laborum fuga deserunt illo adipisci amet unde quo dicta,
-                                eveniet
-                                provident, sunt perspiciatis?Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Laudantium
-                                quia ducimus repellendus, laborum fuga deserunt illo adipisci amet unde quo dicta,
-                                eveniet
-                                provident, sunt perspiciatis?</p>
-                        </div>
+                        <p class="questions__show ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Laudantium
+                            quia ducimus repellendus, laborum fuga deserunt illo adipisci amet unde quo dicta,
+                            eveniet
+                            provident, sunt perspiciatis?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Laudantium
+                            quia ducimus repellendus, laborum fuga deserunt illo adipisci amet unde quo dicta,
+                            eveniet
+                            provident, sunt perspiciatis?</p>
 
                     </div>
                 </article>
                 <article class="questions__padding">
-                    <div class="questions__answer hidden">
-                        <h3 class="questions__title">
+                    <div class="questions__answer">
+                        <h3 class="questions__title hidden">
                             What are the hours of operation?
                             <span class="questions__arrow">
                                 <img src="./images/arrow.svg" alt="No se pudo cagar la imagen" class="questions__img">
                             </span>
                         </h3>
-                        <div class="hidden">
-                            <p class="questions__show">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-                                saepe
-                                iure, quis ex corporis esse perferendis incidunt doloremque illo pariatur labore harum
-                                at!
-                                Inventore sunt nostrum vel, eum officiis dolor?</p>
-                        </div>
+                        <p class="questions__show ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Laudantium
+                            quia ducimus repellendus, laborum fuga deserunt illo adipisci amet unde quo dicta,
+                            eveniet
+                            provident, sunt perspiciatis?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Laudantium
+                            quia ducimus repellendus, laborum fuga deserunt illo adipisci amet unde quo dicta,
+                            eveniet
+                            provident, sunt perspiciatis?</p>
 
                     </div>
                 </article>
+                <a class="cta hidden" id="cta_question" href="https://WA.ME/12035438353">Write us<img
+                    src="./images/whatsapp.svg" alt="Can´t load image" id="img_question"></a>
 
-                <article>
-
-                </article>
             </section>
             <section class="questions__offer">
                 <h2 class="subtitle hidden">Are your ready to make the house of your dreams?</h2>
@@ -385,7 +385,6 @@
                     repellendus, doloribus perferendis. Minus cupiditate, minima repudiandae facilis dolorem dolores
                     fuga quas velit.
                 </p>
-                <a href="#footer" class="cta hidden">Contact us now</a>
             </section>
         </section>
     </main>
@@ -393,31 +392,31 @@
     <footer class="footer" id="footer">
         <section class="footer__container container hidden ">
             <nav class="nav nav__footer">
-                <h2 class="footer__title hidden">Rock <br>Remodeling & Construction</h2>
+                <h2 class="footer__title hidden">Rock<br>Remodeling & Construction</h2>
 
                 <ul class="nav__link nav__link--footer hidden">
-                    <li class="nav__item">
-                        <a href="#" class="nav__links">Home</a>
-                    </li>
                     <li class="nav__item about__button">
                         <a href="#about__projects" class="nav__links">About</a>
                     </li>
-                    <li class="nav__item contact__button contact__button__header">
+                    <li class="nav__item contact__button">
                         <a href="#knowledge" class="nav__links">Location</a>
                     </li>
-                    <li class="nav__item">
+                    <li class="nav__item quote__button">
                         <a href="#price" class="nav__links">Quote</a>
+                    </li>
+                    <li class="nav__item gallery__button">
+                        <a href="#gallery" class="nav__links">Gallery</a>
                     </li>
                 </ul>
 
             </nav>
 
             <form class="footer__form">
-                <h2 class="footer__newsletter hidden">Contact us.</h2>
+                <h2 class="footer__newsletter hidden">Call us:</h2>
                 <div class="footer__inputs hidden" href="#footer">
                     <h2 id="copied">Copied</h2>
                     <button class="rock__number" id="number" onclick="CopiarUrl()">+1 203 543 8353 <img
-                            src="./images/copy.svg" alt="no se pudo cargar la imagen" id="img_copy"></button>
+                            src="./images/copy.svg" alt="Can´t load image" id="img_copy"></button>
 
                     <!-- <input type="text" placeholder="Name:" class="footer__input input__name">
                     <input type="tel" placeholder="Phone number:" class="footer__input input__number">
@@ -429,11 +428,11 @@
         <section class="footer__copy container ">
             <div class="footer__social hidden">
                 <a href="https://WA.ME/12035438353" class="footer__icons"><img src="./images/whatsapp.svg"
-                        alt="No se pudo cargar la imagen" class="footer__img"></a>
+                        alt="Can´t load image" class="footer__img"></a>
                 <!-- <a href="#footer" class="footer__icons facebook"><img src="./images/facebook.svg"
-                        alt="No se pudo cargar la imagen" class="footer__img "></a> -->
+                        alt="Can´t load image" class="footer__img "></a> -->
                 <a href="#footer" class="footer__icons instagram"><img src="./images/instagram.svg"
-                        alt="No se pudo cargar la imagen" class="footer__img"></a>
+                        alt="Can´t load image" class="footer__img"></a>
             </div>
             <h3 class="footer__copyright hidden">&copy;2024, Rock Remodeling & Construction.</h3>
         </section>

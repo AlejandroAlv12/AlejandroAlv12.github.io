@@ -3,9 +3,10 @@
     const menu = document.querySelector('.nav__link');
     const closeMenu = document.querySelector('.nav__close');
     const filter = document.querySelector('.filter');
-    const aboutButton = document.querySelector('.about__button__header');
-    const quouteButton = document.querySelector('.quote__button__header');
     const locationButton = document.querySelector('.location__button__header');
+    const quouteButton = document.querySelector('.quote__button__header');
+    const galleryButton = document.querySelector('.gallery__button__header');
+    const questionsButton = document.querySelector('.question__button__header');
     const contactButton = document.querySelector('.contact__button__header');
     const albumImg = document.querySelector('.album__image');
 
@@ -43,9 +44,10 @@
         unblockScroll(); // Reactiva el scroll al seleccionar un item
     };
 
-    aboutButton?.addEventListener('click', closeMenuAndUnblock);
-    quouteButton?.addEventListener('click', closeMenuAndUnblock);
     locationButton?.addEventListener('click', closeMenuAndUnblock);
+    quouteButton?.addEventListener('click', closeMenuAndUnblock);
+    galleryButton?.addEventListener('click', closeMenuAndUnblock);
+    questionsButton?.addEventListener('click', closeMenuAndUnblock);
     contactButton?.addEventListener('click', closeMenuAndUnblock);
 
     // Hace blur al hover sobre album__img
