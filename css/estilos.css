@@ -132,7 +132,18 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url(../images/fondo.png);
+    background-image:
+        -webkit-linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%),
+        url(../images/fondo/20241224_172546\ \(5\).webp);
+    background-image:
+        -moz-linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%),
+        url(../images/fondo/20241224_172546\ \(5\).webp);
+    background-image:
+        -o-linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%),
+        url(../images/fondo/20241224_172546\ \(5\).webp);
+    background-image:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%),
+        url(../images/fondo/20241224_172546\ \(5\).webp);
     clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 90%, 0 80%);
     background-position: 50% 13%;
     background-repeat: no-repeat;
@@ -228,14 +239,15 @@ body {
     margin-bottom: 20px;
 }
 
-#button_header{   
+#button_header {
     background-color: #ffffff2a;
     backdrop-filter: blur(15px);
-    box-shadow:  #5d5d5d8d 0 0 10px;
+    box-shadow: #5d5d5d8d 0 0 10px;
     text-shadow: #000000 0 0 10px;
     transition: all .5s ease;
     transform: scale(1.001);
 }
+
 .cta {
     display: inline-block;
     justify-self: center;
@@ -244,12 +256,14 @@ body {
     padding: 13px 30px;
     border-radius: 32px;
 }
-#button_header:hover{
+
+#button_header:hover {
     transform: scale(1.3);
     box-shadow: #00000069 0 0 15px;
     background-color: #cf1515;
 }
-#button_header:active{
+
+#button_header:active {
     transform: scale(0.7);
     transition: 0.2s;
     background-color: #ffffff2a;
@@ -549,11 +563,13 @@ body {
 .cta__album:hover {
     cursor: pointer;
 }
-#button_album{
+
+#button_album {
     background-color: var(--color-title);
     transition: all 0.2s ease;
 }
-#button_album:hover{
+
+#button_album:hover {
     transform: scale(1.1);
     box-shadow: #0c111b30 0 5px 5px;
 }
@@ -783,25 +799,28 @@ body {
     margin: 0 auto;
     margin-bottom: 30px;
 }
-#cta_question{
+
+#cta_question {
     background-color: var(--color-title);
     border: none;
     margin-top: 50px;
-    margin-bottom:25px;
+    margin-bottom: 25px;
     font-weight: 400;
     font-size: 1.3rem;
     padding: auto;
     display: flex;
     align-items: center;
-    padding-right:20px;
+    padding-right: 20px;
 }
-#cta_question:hover{
+
+#cta_question:hover {
     transform: scale(1.1);
     box-shadow: #0c111b30 0 5px 5px;
 }
-#img_question{
+
+#img_question {
     height: 35px;
-    width:35px;
+    width: 35px;
     margin-left: 15px;
 }
 
@@ -848,7 +867,7 @@ body {
 }
 
 .rock__number {
-    white-space:nowrap;
+    white-space: nowrap;
     width: auto;
     height: auto;
     padding: 15px 20px;
@@ -976,6 +995,21 @@ body {
         /*hace que el ultimo icono utilice el espacio del primer icono hasta el ultimo (que se centre dinamicamente)*/
     }
 
+    .hero::before {
+        background-image:
+            -webkit-linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%),
+            url(../images/fondo/20241224_172546\ \(4\).webp);
+        background-image:
+            -moz-linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%),
+            url(../images/fondo/20241224_172546\ \(4\).webp);
+        background-image:
+            -o-linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%),
+            url(../images/fondo/20241224_172546\ \(4\).webp);
+        background-image:
+            linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%),
+            url(../images/fondo/20241224_172546\ \(4\).webp);
+    }
+
 
 
 }
@@ -989,7 +1023,6 @@ body {
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url(../images/fondo.png) 100% 90%;
         clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 90%, 0 85%);
         background-position: 50% 13%;
         background-repeat: no-repeat;
@@ -1169,7 +1202,7 @@ body {
     .price {
         text-align: center;
         margin: 0;
-        width:100%;
+        width: 100%;
     }
 
     .price__wrapper {
@@ -1202,6 +1235,7 @@ body {
         transform: translateX(-50%);
         z-index: 50;
     }
+
     .price__element:hover {
         -webkit-transform: scale(1);
         /* Versiones antiguas de Safari */
