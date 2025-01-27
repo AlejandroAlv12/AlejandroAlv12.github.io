@@ -98,18 +98,16 @@ body {
 }
 
 .hidden {
-    opacity: 0.5;
-    scale: 0.9;
-    transform: translateY(0px);
+    opacity: 0.2;
+    pointer-events: none;
+    scale: 0.2;
     filter: blur(2px);
-    transition: opacity 0.9s, filter 0.9s, transform 0.5s ease, scale 0.5s ease;
+    transition: all 0.8s ease-in-out;
 }
 
 .show {
     opacity: 1;
     scale: 1;
-    transform: translateY(0);
-    filter: blur(0, 0, 0);
     filter: blur(0px);
 }
 
@@ -811,6 +809,7 @@ body {
     display: flex;
     align-items: center;
     padding-right: 20px;
+    transition: all 0.3s;
 }
 
 #cta_question:hover {
@@ -938,30 +937,7 @@ body {
     justify-content: center;
 }
 
-.footer__input {
-    background-color: #fff;
-    height: 50px;
-    display: block;
-    padding-left: 10px;
-    border-radius: 8px;
-    font-size: 1rem;
-    outline: none;
-    border: none;
-    margin-right: 16px;
-}
 
-.footer__submit {
-    margin-left: auto;
-    display: inline-block;
-    height: 50px;
-    padding: 0 20px;
-    background-color: #2091f9;
-    border: none;
-    font-size: 1rem;
-    color: #fff;
-    border-radius: 8px;
-    cursor: pointer;
-}
 
 .footer__copy {
     --padding-container: 30px 0;
@@ -1067,7 +1043,7 @@ body {
         z-index: 100;
         opacity: 0;
         pointer-events: none;
-        transition: 0.5s;
+        transition: 0.5s ease-in-out;
     }
 
     .nav__link--show {
@@ -1076,20 +1052,12 @@ body {
         pointer-events: unset;
     }
 
-    .filter--show {
-        -webkit-backdrop-filter: blur(30px);
-        -moz-backdrop-filter: blur(30px);
-        -ms-backdrop-filter: blur(30px);
-        backdrop-filter: blur(30px);
-        transition: 0.5s;
-        animation: transition ease-in-out;
-        will-change: transform;
-    }
+
 
     .nav__close {
         position: absolute;
-        top: 30px;
-        right: 30px;
+        top: 35px;
+        right: 5%;
         width: 30px;
         cursor: pointer;
     }
