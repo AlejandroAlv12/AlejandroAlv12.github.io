@@ -1,18 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.createElement("div");
-    modal.classList.add("modal");
+    modal.style.position = "fixed";
+    modal.style.top = "0";
+    modal.style.left = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
+    modal.style.transition = "background-color 0.4s ease";
+    modal.style.display = "none";
+    modal.style.zIndex = "1000";
+    modal.style.overflow = "hidden";
+
     document.body.appendChild(modal);
 
     const modalContent = document.createElement("div");
-    modalContent.classList.add("modal-content");
+    modalContent.style.position = "absolute";
+    modalContent.style.transition =
+        "transform 0.4s ease, top 0.4s ease, left 0.4s ease, width 0.4s ease, height 0.4s ease, border-radius 0.4s ease, box-shadow 0.4s ease";
+    modalContent.style.borderRadius = "20px";
+    modalContent.style.boxShadow = "0 0 15px rgba(0, 0, 0, 0.3)";
     modal.appendChild(modalContent);
 
     const modalImg = document.createElement("img");
+    modalImg.style.width = "100%";
+    modalImg.style.height = "100%";
+    modalImg.style.objectFit = "fill"; // Permitir que las imágenes se deformen
+    modalImg.style.display = "none";
+    modalImg.style.borderRadius = "20px";
     modalContent.appendChild(modalImg);
 
     const modalVideo = document.createElement("video");
-    modalVideo.controls = false;
-    modalVideo.muted = true;
+    modalVideo.style.width = "100%";
+    modalVideo.style.height = "100%";
+    modalVideo.style.objectFit = "fill"; // Permitir que los videos se deformen
+    modalVideo.style.display = "none";
+    modalVideo.style.borderRadius = "20px";
+    modalVideo.controls = false; // Los controles están ocultos inicialmente
+    modalVideo.muted = true; // El video comienza sin sonido
     modalContent.appendChild(modalVideo);
 
     const gallery = document.querySelector(".galeria");
@@ -25,13 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
         isAnimating = true;
 
         modal.style.backgroundColor = "rgba(0, 0, 0, 0)";
-        Object.assign(modalContent.style, {
-            width: `${originalPosition.width}px`,
-            height: `${originalPosition.height}px`,
-            top: `${originalPosition.top - window.scrollY}px`,
-            left: `${originalPosition.left - window.scrollX}px`,
-            transform: "none",
-        });
+
+        modalContent.style.width = originalPosition.width + "px";
+        modalContent.style.height = originalPosition.height + "px";
+        modalContent.style.top = originalPosition.top - window.scrollY + "px";
+        modalContent.style.left = originalPosition.left - window.scrollX + "px";
+        modalContent.style.transform = "none";
 
         if (modalVideo.style.display === "block") {
             modalVideo.pause();
@@ -39,9 +62,12 @@ document.addEventListener("DOMContentLoaded", () => {
             modalVideo.controls = false;
         }
 
-        gallery.classList.remove("galeria-blur");
+        gallery.style.filter = "blur(0px)";
+
         setTimeout(() => {
-            if (originalElement) originalElement.style.visibility = "visible";
+            if (originalElement) {
+                originalElement.style.visibility = "visible";
+            }
             modal.style.display = "none";
             modalImg.style.display = "none";
             modalVideo.style.display = "none";
@@ -73,9 +99,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const screenWidth = window.innerWidth * 0.9;
         const screenHeight = window.innerHeight * 0.9;
 
-        const finalHeight =
-            screenWidth / screenHeight > aspectRatio ? screenHeight : screenWidth / aspectRatio;
-        const finalWidth = finalHeight * aspectRatio;
+        let finalWidth, finalHeight;
+        if (screenWidth / screenHeight > aspectRatio) {
+            finalHeight = screenHeight;
+            finalWidth = finalHeight * aspectRatio;
+        } else {
+            finalWidth = screenWidth;
+            finalHeight = finalWidth / aspectRatio;
+        }
 
         if (isVideo) {
             modalVideo.src = element.src;
@@ -85,27 +116,26 @@ document.addEventListener("DOMContentLoaded", () => {
             modalImg.style.display = "block";
         }
 
-        Object.assign(modalContent.style, {
-            width: `${originalPosition.width}px`,
-            height: `${originalPosition.height}px`,
-            top: `${originalPosition.top - window.scrollY}px`,
-            left: `${originalPosition.left - window.scrollX}px`,
-            transform: "none",
-        });
+        modalContent.style.width = originalPosition.width + "px";
+        modalContent.style.height = originalPosition.height + "px";
+        modalContent.style.top = originalPosition.top - window.scrollY + "px";
+        modalContent.style.left = originalPosition.left - window.scrollX + "px";
+        modalContent.style.transform = "none";
 
         modal.style.display = "block";
 
         setTimeout(() => {
             modal.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-            if (originalElement) originalElement.style.visibility = "hidden";
 
-            Object.assign(modalContent.style, {
-                width: `${finalWidth}px`,
-                height: `${finalHeight}px`,
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-            });
+            if (originalElement) {
+                originalElement.style.visibility = "hidden";
+            }
+
+            modalContent.style.width = finalWidth + "px";
+            modalContent.style.height = finalHeight + "px";
+            modalContent.style.top = "50%";
+            modalContent.style.left = "50%";
+            modalContent.style.transform = "translate(-50%, -50%)";
 
             if (isVideo) {
                 setTimeout(() => {
@@ -114,10 +144,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, 1);
             }
 
-            isAnimating = false;
+            setTimeout(() => {
+                isAnimating = false;
+            }, 1);
         }, 1);
 
-        gallery.classList.add("galeria-blur");
+        gallery.style.filter = "blur(10px)";
+        gallery.style.transition = "filter 0.4s ease";
         document.body.style.overflow = "hidden";
     };
 
