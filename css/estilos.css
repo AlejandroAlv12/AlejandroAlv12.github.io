@@ -465,30 +465,6 @@ body {
     color: var(--color-items)
 }
 
-.price__cta {
-    display: block;
-    /*para que ocupe todo el ancho*/
-    padding: 20px 0;
-    /*arribaYabajo IzdaYdcha*/
-    border-radius: 20px;
-    text-decoration: none;
-    background-color: var(--bg-cta);
-    font-weight: 600;
-
-    color: var(--color-cta);
-    transition: all .5s;
-    cursor: pointer;
-
-}
-
-.price__cta:hover {
-    background-color: var(--color-cta);
-    color: var(--bg-cta);
-    transform: scale(1.1);
-    transition: all .5s;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-}
-
 
 /* album */
 .album__body {
@@ -564,12 +540,13 @@ body {
 
 #button_album {
     background-color: var(--color-title);
-    transition: all 0.2s ease;
+    transition: all 0.2s;
 }
 
 #button_album:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
     box-shadow: #0c111b30 0 5px 5px;
+    background-color: #cf1515;
 }
 
 /* cards */
@@ -809,12 +786,13 @@ body {
     display: flex;
     align-items: center;
     padding-right: 20px;
-    transition: all 0.3s;
+    transition: all 0.2s ease;
 }
 
 #cta_question:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
     box-shadow: #0c111b30 0 5px 5px;
+    background-color: #cf1515;
 }
 
 #img_question {
