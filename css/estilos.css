@@ -269,7 +269,7 @@ body {
 
 
 
-/* about */
+/* about ----------------------------------------------------------------------------*/
 .about {
     text-align: center;
 }
@@ -315,7 +315,7 @@ body {
     color: var(--color-cta);
 }
 
-/* knowledge */
+/* knowledge ----------------------------------------------------------------------------*/
 
 .knowledge {
     background-color: #e5e5f7;
@@ -359,7 +359,7 @@ body {
     margin-left: 20px;
 }
 
-/* price */
+/* price ----------------------------------------------------------------------------*/
 
 /* Asegurando que todos los navegadores reconozcan las propiedades personalizadas */
 :root {
@@ -466,7 +466,7 @@ body {
 }
 
 
-/* album */
+/* album ----------------------------------------------------------------------------*/
 .album__body {
     background-color: #e5e5f7;
     display: flex;
@@ -496,12 +496,8 @@ body {
     /* Centra los elementos horizontalmente */
     justify-content: center;
     /* Centra los elementos verticalmente */
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, white 10%, white 90%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, white 10%, white 90%, transparent 100%);
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
+
+
 }
 
 
@@ -518,6 +514,14 @@ body {
     justify-content: center;
     /* Centra verticalmente */
     scroll-behavior: smooth;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, white 10%, white 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, white 10%, white 90%, transparent 100%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
 }
 
 .cta__album {
@@ -548,6 +552,23 @@ body {
     box-shadow: #0c111b30 0 5px 5px;
     background-color: #cf1515;
 }
+
+.slider_nav{
+    width: 40px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ccc;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 10;
+}
+/* Ubicación izquierda/derecha */
+.slider_nav.prev { left: 1rem; }
+.slider_nav.next { right: 1rem; }
 
 /* cards */
 .card__list {
@@ -698,7 +719,7 @@ body {
     scale: .9;
 }
 
-/* questions */
+/* questions ----------------------------------------------------------------------------*/
 
 .questions {
     text-align: center;
@@ -801,7 +822,7 @@ body {
     margin-left: 15px;
 }
 
-/* footer */
+/* footer ----------------------------------------------------------------------------*/
 
 .footer {
     background-color: var(--color-price);
