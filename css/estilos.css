@@ -567,6 +567,11 @@ body {
     cursor: pointer;
     z-index: 10;
     transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
 
     transform: scale(0);
     opacity: 0;
@@ -1327,10 +1332,18 @@ body {
 
 
     /* cards */
-
     .slider_nav{
-        display:none;
+        width: 30px;
+        height: 30px;
     }
+    
+    .slider_nav img {
+        width: 20px;    /* ancho deseado */
+        height: 20px;   
+        display: block; /* elimina espacios blancos */
+        margin: auto;
+      }
+
 
     .card__item {
         min-width: 240px;
