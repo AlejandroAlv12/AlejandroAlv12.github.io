@@ -436,7 +436,7 @@ body {
 .price__element--best {
     width: 370px;
     padding: 60px 40px;
-    background-color: #cf1515;
+    background-color: #867979;
     --color-plan: rgba(255 255 255 /75%);
     --color-price: #fff;
     --bg-cta: #971111;
@@ -559,12 +559,34 @@ body {
     display: block;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    background: #ccc;
+    background: #cf1515;
     border: none;
+    border-radius: 50%;
+    cursor: pointer;
     padding: 0.5rem;
     cursor: pointer;
     z-index: 10;
+    transition: all 0.3s;
+
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none; /* impide clicks cuando está invisible */
+}
+.slider_nav.visible {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .slider_nav:hover{
+      transform: scale(1.1);
+      background-color: #c94a4a;
+      transition: all 0.3s ;
+  }
+.slider_nav:active{
+    transform: scale(0.7);
+    background-color: #971111;
 }
 /* Ubicación izquierda/derecha */
 .slider_nav.prev { left: 1rem; }
