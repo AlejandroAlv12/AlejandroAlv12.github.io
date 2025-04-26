@@ -1327,6 +1327,11 @@ body {
 
 
     /* cards */
+
+    .slider_nav{
+        display:none;
+    }
+
     .card__item {
         min-width: 240px;
     }
