@@ -426,6 +426,8 @@ body {
     -webkit-transition: transform 0.3s ease;
     /* Versiones antiguas de Safari */
     transition: transform 0.3s ease;
+    user-select: none;
+    
 }
 
 .price__element:hover {
@@ -450,6 +452,7 @@ body {
     color: var(--color-plan);
     margin-bottom: 15px;
     font-weight: 300;
+    pointer-events: none;
 }
 
 .price__price {
@@ -458,12 +461,12 @@ body {
 }
 
 .price__items {
-    margin-top: 35px;
+    margin-top: 40px;
     display: grid;
     gap: 1em;
     font-weight: 300;
     font-size: 1.2rem;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
     color: var(--color-items)
 }
 
@@ -839,7 +842,7 @@ body {
     display: flex;
     align-items: center;
     padding-right: 20px;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 #cta_question:hover {
