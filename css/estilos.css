@@ -594,12 +594,13 @@ body {
 
   .slider_nav:hover{
       transform: scale(1.1);
-      background-color: #c94a4a;
+      background-color: #c01515;
       transition: all 0.3s ;
   }
 .slider_nav:active{
     transform: scale(0.7);
     background-color: #971111;
+    transition: all 0.3s ;
 }
 /* Ubicación izquierda/derecha */
 .slider_nav.prev { left: 1rem; }
